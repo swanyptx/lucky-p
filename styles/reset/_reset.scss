@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Vollkorn";
+    src: url("../../assets/fonts/Vollkorn-VariableFont_wght.ttf"),
+        url("../../assets/fonts/Vollkorn-Italic-VariableFont_wght.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62, 5%;
+}
+
+//Container
+
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+
+    h1 {
+        font-size: 3.6rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
