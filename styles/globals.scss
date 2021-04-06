@@ -5,3 +5,14 @@
 h2 {
  font-family: "Poppins", sans-serif;
 }
+footer{
+    background-color: $mainBlack;
+    color: $mainWhite;
+    min-height: 50vh;
+    h2{
+        font-size:1.6rem;
+    }
+    .container{
+        min-height: 50vh;
+    }
+}
