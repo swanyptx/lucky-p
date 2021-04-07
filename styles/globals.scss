@@ -76,3 +76,21 @@ h2 {
         }
     }
 }
+
+.events {
+    background-color: $mainRed;
+
+    .container {
+             color: white;
+             
+             h2 {
+                 font-size: 2.5rem;
+             }
+    }
+
+    iframe {
+        max-width: 80%;
+    }
+}
+
+
