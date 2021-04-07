@@ -5,6 +5,60 @@
 h2 {
     font-family: "Poppins", sans-serif;
 }
+footer {
+    background-color: $mainBlack;
+    color: $mainWhite;
+    font-family: "Poppins", sans-serif;
+    figure {
+        width: 10rem;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    p {
+        font-size: 1.2rem;
+    }
+
+}
+.reserver {
+    background-color: $mainRed;
+    .reserve-img {
+        width: 50%;
+        figure{
+            width: 20rem;
+            height: 20rem;
+            border: 1px solid black;
+        }
+    }
+    
+    .reserve-infos {
+        width: 50%;
+        .reserve-text {
+            color: $mainWhite;
+            h2{
+                font-family: "Vollkorn", sans-serif;
+                font-size: 2rem;
+            }
+        }
+        .reserve-button {
+            background-color: $mainYellow;
+            color: $mainWhite;
+        }
+        
+    }
+    @media (max-width:1025px) {
+        min-height: 7rem;
+        .reserve-button{
+            font-size: 2rem;
+            
+        }
+    }
+}
 
 .navbar {
     position: absolute;
@@ -14,7 +68,7 @@ h2 {
 }
 
 .header {
-    background-image: url("../assets/img/bg/background3_flou.jpg");
+    background-image: url("../public/assets/img/bg/background3_flou.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;

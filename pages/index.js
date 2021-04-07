@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Header from '../components/Header.js'
 import Calendar from '../components/Calendar'
+import Booking from '../components/Booking.js'
+import Footer from "../components/Footer.js"
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
 
       <Header></Header>
       <Calendar />
+      <Booking/>
+      <Footer/>
     </div>
   )
 }

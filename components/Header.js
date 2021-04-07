@@ -8,7 +8,7 @@ const Header = () => {
             <Navbar></Navbar>
             <div className="header_title">
                 <h1>Bienvenue à</h1>
-                <img className="p-3" src="/logo_laluck.svg" alt="La Luck" />
+                <img className="p-3" src="/assets/img/logo/logo_laluck.svg" alt="La Luck" />
             </div>
             <div className="choice mt-4 p-4 text-center">
                 <p> Êtes-vous déjà venu à La Luck ?</p>
