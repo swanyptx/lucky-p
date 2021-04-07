@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Booking from '../components/Booking.js'
 import Footer from "../components/Footer.js"
 
 export default function Home() {
@@ -10,7 +11,10 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
       </Head>
-      
+      <div className="test">
+
+      </div>
+      <Booking/>
       <Footer/>
     </div>
   )
