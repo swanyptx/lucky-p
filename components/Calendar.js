@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Calendar() {
     return(
-        <div className="events flex justify-center items-center">
+        <div className="events flex justify-center items-center pt-72">
             <div className="container">
                 <h2 className="text-center p-10">Nos événements</h2>
                 <div className="md:flex justify-center items-center">

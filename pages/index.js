@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import Head from 'next/head'
 import Header from '../components/Header.js'
 import Calendar from '../components/Calendar'
@@ -8,7 +9,11 @@ import SocialNetwork from '../components/SocialNetwork.js'
 import Reviews from '../components/Reviews.js'
 import SilderMain from '../components/SliderMain.js'
 
-export default function Home() {
+
+const Home = () => {
+
+  const [isAlreadyCame, setIsAlreadyCame] = useState("");
+  console.log(isAlreadyCame)
   return (
     <div className="">
       <Head>
@@ -19,8 +24,9 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
       </Head>
 
-      <Header></Header>
-      
+      <Header passChildData={isAlreadyCame}></Header>
+{/* 
+      if(isAlreadyCame) {} */}
       <BasicSection
         title="Le Concept de La Luck"
         text="La Luck est une brasserie avec mezzanine et velux offrant bières, burgers, poutines, brunches. La force de notre batiment est d’offrir plus de 1000 jeux de société que vous pouvez utilisé. Situé dans le Vieux-Lille., nous sommes ouverts depuis 2016."
@@ -29,7 +35,9 @@ export default function Home() {
         sectionName="concept"
         button={false}
       />
-      <Calendar />
+
+      {/* <SilderMain /> */}
+
       <BasicSection
         title="La Brasserie de La Luck"
         text="Côté cuisine, La Luck fait tout maison à partir d'un max de produits locaux. Clin d'oeil à nos racines québécoises, la Poutine revisitée est l'une des stars du menu. Notre brunch s'inspire aussi largement de Montréal. 
@@ -53,14 +61,15 @@ export default function Home() {
         href="/"
       />
 
-      <Booking/>
-    
-      <SocialNetwork/>
-      
-      {/* <SilderMain /> */}
       <Reviews />
-      {/* <Booking/> */}
-      <Footer/>
+
+      {/* <SocialNetwork/> */}
+
+      <Calendar />
+      <Booking />
+      <Footer />
     </div>
   )
 }
+
+export default Home
