@@ -4,8 +4,8 @@ import Link from 'next/link'
 const Booking = () => {
     const [scrollBottom, setScrollBottom] = useState(false)
     return (
-        <section className="reserver fixed bottom-0 w-screen lg:static ">
-            <div className="container flex justify-center items-center  lg:py-8">
+        <section className="reserver fixed bottom-0 lg:static flex justify-center items-center">
+            <div className="container flex justify-center items-center lg:py-8">
                 <div className="reserve-img hidden lg:block">
                     <figure>
                         <img src="../assets/img/deco/fun-1.jpg" alt="test" />

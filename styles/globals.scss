@@ -25,19 +25,31 @@ footer {
     }
 
 }
+
+.concept{
+    @include section($mainYellow)
+}
+.brasserie{
+    @include section($mainBlack)
+}
+.ludotheque{
+    @include section($mainGreen)
+}
+
 .reserver {
     background-color: $mainRed;
+
+    min-height: 80vh;
     .reserve-img {
-        width: 50%;
+        width: 45%;
         figure{
             width: 20rem;
             height: 20rem;
-            border: 1px solid black;
         }
     }
     
     .reserve-infos {
-        width: 50%;
+        width: 45%;
         .reserve-text {
             color: $mainWhite;
             h2{
@@ -53,6 +65,7 @@ footer {
     }
     @media (max-width:1025px) {
         min-height: 7rem;
+        width: 100%;
         .reserve-button{
             font-size: 2rem;
             
