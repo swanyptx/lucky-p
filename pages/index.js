@@ -5,6 +5,8 @@ import Booking from '../components/Booking.js'
 import Footer from "../components/Footer.js"
 import BasicSection from '../components/BasicSection.js'
 import SocialNetwork from '../components/SocialNetwork.js'
+import Reviews from '../components/Reviews.js'
+import SilderMain from '../components/SliderMain.js'
 
 export default function Home() {
   return (
@@ -55,6 +57,9 @@ export default function Home() {
     
       <SocialNetwork/>
       
+      {/* <SilderMain /> */}
+      <Reviews />
+      {/* <Booking/> */}
       <Footer/>
     </div>
   )
