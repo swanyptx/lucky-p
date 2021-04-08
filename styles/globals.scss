@@ -2,6 +2,9 @@
 @import "./reset/reset";
 @import "./reset/mixins";
 
+.hiddenScroll{
+    overflow: hidden;
+}
 .header {
     background-image: url("../public/assets/img/bg/background3_flou.jpg");
     background-repeat: no-repeat;
@@ -101,7 +104,8 @@ footer {
 }
 
 .navbar {
-    position: absolute;
+    position: fixed;
+    z-index: 2;
     top: 0;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
@@ -150,7 +154,7 @@ footer {
 }
 
 .events {
-    background-color: $mainRed;
+    background-color: $mainGreen;
 
     .container {
         color: white;
@@ -177,7 +181,6 @@ footer {
 
     .hidePaid {
         height: 2rem;
-        background-color: pink;
         top: 10rem;
     }
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class SocialNetwork extends Component {
     render() {
         return (
-            <section className="socialNetwork">
+            <section id="socialNetwork" className="socialNetwork">
                 <div className="container">
                     <h2 className="text-center text-white p-10">Les Nouvelles de La Luck</h2>
 
