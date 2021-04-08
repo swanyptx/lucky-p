@@ -4,6 +4,7 @@ import Calendar from '../components/Calendar'
 import Booking from '../components/Booking.js'
 import Footer from "../components/Footer.js"
 import BasicSection from '../components/BasicSection.js'
+import SocialNetwork from '../components/SocialNetwork.js'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       </Head>
 
       <Header></Header>
+      
       <BasicSection
         title="Le Concept de La Luck"
         text="La Luck est une brasserie avec mezzanine et velux offrant bières, burgers, poutines, brunches. La force de notre batiment est d’offrir plus de 1000 jeux de société que vous pouvez utilisé. Situé dans le Vieux-Lille., nous sommes ouverts depuis 2016."
@@ -48,8 +50,12 @@ export default function Home() {
         buttonContent="Voir la ludothèque"
         href="/"
       />
-      <Booking />
-      <Footer />
+
+      <Booking/>
+    
+      <SocialNetwork/>
+      
+      <Footer/>
     </div>
   )
 }
