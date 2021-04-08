@@ -147,4 +147,24 @@ footer {
     }
 }
 
+.reviews {
+    background-color: $mainBlack;
 
+    // min-height: 80vh;
+
+    h2 {
+        color: $mainWhite;
+        font-size: 2.5rem;
+    }
+
+    .hidePaid {
+        height: 2rem;
+        background-color: pink;
+        top: 10rem;
+    }
+
+    a {
+        display: none !important;
+    }
+
+}
