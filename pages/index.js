@@ -3,6 +3,7 @@ import Header from '../components/Header.js'
 import Calendar from '../components/Calendar'
 import Booking from '../components/Booking.js'
 import Footer from "../components/Footer.js"
+import SocialNetwork from '../components/SocialNetwork.js'
 
 export default function Home() {
   return (
@@ -16,8 +17,11 @@ export default function Home() {
       </Head>
 
       <Header></Header>
-      <Calendar />
       <Booking/>
+    
+      <SocialNetwork/>
+      <Calendar />
+      
       <Footer/>
     </div>
   )

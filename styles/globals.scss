@@ -23,24 +23,24 @@ footer {
     p {
         font-size: 1.2rem;
     }
-
 }
 .reserver {
     background-color: $mainRed;
     .reserve-img {
         width: 50%;
-        figure{
+        figure {
             width: 20rem;
-            height: 20rem;
+            
             border: 1px solid black;
+            img { width: 100%;}
         }
     }
-    
+
     .reserve-infos {
         width: 50%;
         .reserve-text {
             color: $mainWhite;
-            h2{
+            h2 {
                 font-family: "Vollkorn", sans-serif;
                 font-size: 2rem;
             }
@@ -49,14 +49,20 @@ footer {
             background-color: $mainYellow;
             color: $mainWhite;
         }
-        
     }
-    @media (max-width:1025px) {
+    @media (max-width: 1025px) {
         min-height: 7rem;
-        .reserve-button{
+        .reserve-button {
             font-size: 2rem;
-            
         }
+    }
+}
+
+.socialNetwork {
+    background-color: $mainBlack;
+    h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 2rem;
     }
 }
 
@@ -135,16 +141,14 @@ footer {
     background-color: $mainRed;
 
     .container {
-             color: white;
-             
-             h2 {
-                 font-size: 2.5rem;
-             }
+        color: white;
+
+        h2 {
+            font-size: 2.5rem;
+        }
     }
 
     iframe {
         max-width: 80%;
     }
 }
-
-

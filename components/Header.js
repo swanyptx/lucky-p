@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.js'
 
 const Header = () => {
     return (
+
         <div className="header">
 
             <Navbar></Navbar>
