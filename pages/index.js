@@ -8,7 +8,10 @@ import SocialNetwork from '../components/SocialNetwork.js'
 import Reviews from '../components/Reviews.js'
 import SilderMain from '../components/SliderMain.js'
 
-export default function Home() {
+export default function Home(props) {
+
+  console.log(isTrue)
+
   return (
     <div className="">
       <Head>
@@ -58,7 +61,7 @@ export default function Home() {
       <SocialNetwork/>
       
       {/* <SilderMain /> */}
-      <Reviews />
+      {/* <Reviews /> */}
       {/* <Booking/> */}
       <Footer/>
     </div>
