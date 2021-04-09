@@ -49,7 +49,7 @@ const Home = () => {
         sectionName="brasserie"
         button={true}
         buttonContent="Voir la brasserie"
-        href="/"
+        href="/brasserie"
       />
       <BasicSection
         title="Les Jeux de La Luck"
@@ -60,7 +60,7 @@ const Home = () => {
         sectionName="ludotheque"
         button={true}
         buttonContent="Voir la ludothèque"
-        href="/"
+        href="/jeux"
       />
       <Reviews />
       {/* <SocialNetwork/> */}

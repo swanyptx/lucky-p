@@ -189,3 +189,66 @@ footer {
     }
 
 }
+.carte{
+    background-color: $mainGreen;
+    height: fit-content;
+    h2{
+        color: white;
+        font-family: "Vollkorn", sans-serif;
+        font-size: 2rem;
+    }
+}
+.jeux{
+    background-color: $mainBlack;
+    color: white;
+    
+    h2{
+        font-family: "Vollkorn", sans-serif;
+        font-size: 2rem;
+    }
+    p{
+        width: 50%;
+        margin: auto;
+    }
+    a{
+        background-color: $mainYellow;
+    }
+    figure{
+        margin: auto;
+        width: 30rem;
+        height: auto;
+        img{
+            width: 100%;
+        }
+    }
+}
+.ludotheque{
+    background-color: $mainYellow;
+    h2{
+        color: white;
+        font-family: "Vollkorn", sans-serif;
+        font-size: 2rem;
+    }
+    .search{
+        min-width: fit-content;
+        min-height: 20rem;
+        background-color: $mainRed;
+        color: $mainBlack;
+        font-family: "Poppins", sans-serif;
+        &-ByName{
+        }
+        &-hastags{
+            min-height: 10rem;
+        }
+        label{
+            color: $mainWhite;
+        }
+    }
+    .submit{
+        width: fit-content;
+        background-color: $mainGreen;
+        margin: auto;
+        color: white;
+
+    }
+}
