@@ -14,7 +14,7 @@ export default function SliderMain() {
     return(
         <div className="container-slider w-full h-full overflow-hidden">
             <Slider {...settings}>
-                    <div className="w-screen slide w-1/2">
+                    <div className="slide w-1/2">
                     {/* <Image 
                         src="/assets/img/bg/background4.jpg"
                         alt=""
@@ -32,7 +32,7 @@ export default function SliderMain() {
                         width={700}
                         height={475}
                         /> */}
-                        <img className="w-full" src="/assets/img/bg/background4.jpg" alt=""/>
+                        <img className="w-full" src="/assets/img/bg/background5.jpg" alt=""/>
                     </div>
                     <div className="slide w-1/2">
                     {/* <Image 

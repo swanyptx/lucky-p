@@ -1,7 +1,36 @@
+import Slider from "react-slick"
+
 export default function Reviews({ data }) {
     
+    var settings = {
+        dots: false,
+        infinite: true,
+        autoplay: true,
+        speed: 4000,
+        autoplaySpeed: 2000,
+      };
+
+
     const reviews = data.map((review) => {
-        return(<p>{review.review}</p>)
+
+        function getNote(note) {
+            console.log(note);
+            for (let index = 0; index < note; index++) {
+                return(
+                    <img src="/assets/img/notes/star.svg" alt=""/>
+                )
+            }
+        }
+
+        return(
+            <div key={review.userName}>
+                    <div className="avis">
+                        <p>{review.userName}</p>
+                        <p>{review.review}</p>
+                        {getNote(review.note)}
+                    </div>
+            </div>
+        )
 
     })
 
@@ -9,12 +38,9 @@ export default function Reviews({ data }) {
     return (
         <div className="reviews">
             <h2 className="text-center p-5">L'avis de nos clients</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda nulla labore necessitatibus maxime minus explicabo qui molestias culpa? Dolores aut cumque quos eveniet earum deleniti aliquid saepe qui harum! Amet!</p>
-            {/* <div className="hidePaid">
-                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-                <div className="elfsight-app-c5cba83b-e07f-4a63-b915-560c1479f42f"></div>
-            </div> */}
-            {reviews}
+            <Slider {...settings}>
+                {reviews}
+            </Slider>
         </div>
     )
 }
