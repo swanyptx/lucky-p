@@ -12,6 +12,7 @@ export default function SliderMain() {
       };
 
     return(
+<<<<<<< HEAD
         <div className="container-slider w-full h-full overflow-hidden">
             <Slider {...settings}>
                     <div className="w-screen slide w-1/2">
@@ -46,6 +47,11 @@ export default function SliderMain() {
                     </div>
             </Slider>
         </div>
+=======
+        <section className="container-slider">
+            <h2>Slider</h2>
+        </section>
+>>>>>>> b558f39240d3f80244c2c7790f63c87c269fe215
     )
 }
 
