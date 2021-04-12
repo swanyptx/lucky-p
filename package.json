@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start"
   },
@@ -13,6 +13,7 @@
     "node-sass": "^5.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-slick": "^0.28.1",
     "sass": "^1.32.8"
   },
   "devDependencies": {

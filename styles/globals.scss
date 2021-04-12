@@ -2,53 +2,90 @@
 @import "./reset/reset";
 @import "./reset/mixins";
 
-.hiddenScroll{
+.hiddenScroll {
     overflow: hidden;
 }
+
+.displayNone {
+    display: none;
+}
+
+//HEADER
+
 .header {
     background-image: url("../public/assets/img/bg/background3_flou.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .header_title {
-        color: $mainYellow;
-        font-size: 40px;
-        font-family: "Vollkorn", sans-serif;
-        font-weight: 700;
-        text-align: center;
-        text-shadow: 0px 4px 4px #000000;
-    }
+    background-position: center;
+    background-attachment: fixed;
 
     h2 {
         font-family: "Poppins", sans-serif;
     }
-}
-footer {
-    background-color: $mainBlack;
-    color: $mainWhite;
-    font-family: "Poppins", sans-serif;
-    figure {
-        width: 10rem;
-        img {
-            width: 100%;
-            height: auto;
+    .headerTitle {
+        color: $mainYellow;
+        font-size: 40px;
+        font-family: "Vollkorn", sans-serif;
+        font-weight: 700;
+        text-shadow: 0px 4px 4px #000000;
+    }
+
+    .choiceDisplay {
+        max-width: 50%;
+        border-radius: 10px;
+        background: #00000085;
+        color: $mainYellow;
+
+        p {
+            font-size: 2rem;
+            text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+            @media (max-width: 1025px) {
+                font-size: 1rem;
+            }
+        }
+
+        .buttons {
+            width: 50%;
+            a {
+                @include goldenButton;
+            }
         }
     }
-    h2 {
-        font-size: 1.6rem;
-        margin-bottom: 1rem;
+}
+
+//NAVBAR
+
+.navbar {
+    background-color: $mainBlack;
+    text-shadow: 1px 1px 2px black;
+    position: fixed;
+    width: 100%;
+    padding: 1rem 3rem;
+    z-index: 2;
+    top: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+
+    //HAMBURGER BUTTON
+
+    .hamburger {
+        transform: rotateZ(90deg);
+        cursor: pointer;
+
+        &:hover {
+            transform: rotateZ(90deg) scale(1.3);
+            transition: all 0.3s ease;
+        }
+        transform: rotateZ(90deg) scale(1);
+        transition: all 0.3s ease;
     }
-    p {
-        font-size: 1.2rem;
+
+    .button {
+        @include goldenButton;
     }
 }
+
+//BASIC COMPONENT (CONCEPT,
 
 .concept {
     @include section($mainYellow);
@@ -60,15 +97,57 @@ footer {
     @include section($mainGreen);
 }
 
+//REVIEWS OF CUSTOMER
+
+.reviews {
+    background-color: $mainBlack;
+    min-height: 90vh;
+
+    h2 {
+        color: $mainWhite;
+    }
+
+    .hidePaid {
+        height: 2rem;
+        top: 10rem;
+    }
+
+    //Pop-Up of the package undisplayed
+
+    a {
+        display: none !important;
+    }
+}
+
+// EVENTS CALENDAR
+
+.events {
+    background-color: $mainGreen;
+    min-height: 90vh;
+
+    .container {
+        color: white;
+    }
+
+    iframe {
+        max-width: 80%;
+    }
+}
+
+//BOOKING
+
 .reserver {
     background-color: $mainRed;
+    min-height: 90vh;
 
-    min-height: 80vh;
     .reserve-img {
         width: 45%;
         figure {
             width: 20rem;
             height: 20rem;
+            img {
+                height: 100%;
+            }
         }
     }
 
@@ -76,24 +155,21 @@ footer {
         width: 45%;
         .reserve-text {
             color: $mainWhite;
-            h2 {
-                font-family: "Vollkorn", sans-serif;
-                font-size: 2rem;
-            }
         }
         .reserve-button {
-            background-color: $mainYellow;
-            color: $mainWhite;
+            @include goldenButton;
         }
     }
     @media (max-width: 1025px) {
-        min-height: 7rem;
-        width: 100%;
+        min-height: auto;
+        width: auto;
         .reserve-button {
-            font-size: 2rem;
+            font-size: 1rem;
         }
     }
 }
+
+//SOCIAL NETWORK
 
 .socialNetwork {
     background-color: $mainBlack;
@@ -109,6 +185,7 @@ footer {
     top: 0;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
+    mix-blend-mode: difference;
 }
 
 .displayNone {
@@ -151,41 +228,42 @@ footer {
             }
         }
     }
+    min-height: 90vh;
 }
 
-.events {
-    background-color: $mainGreen;
+//FOOTER
 
-    .container {
-        color: white;
+footer {
+    background-color: $mainBlack;
+    color: $mainWhite;
 
-        h2 {
-            font-size: 2.5rem;
+    font-family: "Poppins", sans-serif;
+
+    figure {
+        width: 10rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        @media (max-width: 1025px) {
+            font-size: 1.2rem;
         }
     }
 
-    iframe {
-        max-width: 80%;
+    p {
+        font-size: 1.2rem;
+        @media (max-width: 1025px) {
+            font-size: 1rem;
+        }
     }
 }
 
-.reviews {
+.container-slider {
+   
     background-color: $mainBlack;
+}
 
-    // min-height: 100vh;
-
-    h2 {
-        color: $mainWhite;
-        font-size: 2.5rem;
-    }
-
-    .hidePaid {
-        height: 2rem;
-        top: 10rem;
-    }
-
-    a {
-        display: none !important;
-    }
-
+::-webkit-scrollbar {
+    width: 0;
 }

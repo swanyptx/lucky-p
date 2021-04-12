@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar.js'
 const Header = () => {
 
     return (
-        <div className="header">
+        <div className="header flex flex-col justify-center items-center h-screen">
             <Navbar></Navbar>
             <div className="header_title">
                 <h1>Bienvenue à</h1>
