@@ -7,7 +7,8 @@ import Navbar from "../components/Navbar.js"
 import BasicSection from '../components/BasicSection.js'
 import SocialNetwork from '../components/SocialNetwork.js'
 import Reviews from '../components/Reviews.js'
-import SilderMain from '../components/SliderMain.js'
+import SliderMain from '../components/SliderMain.js'
+import Image from "next/image";
 
 
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
         button={false}
       />
 
-      {/* <SilderMain /> */}
+      <SliderMain />
 
       <BasicSection
         title="La Brasserie de La Luck"
@@ -81,10 +82,12 @@ const Home = () => {
     <div className="">
       <Head>
         <title>La Luck</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
       </Head>
 
       <div className="header">

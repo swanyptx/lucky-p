@@ -109,6 +109,7 @@ footer {
     top: 0;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
+    mix-blend-mode: difference;
 }
 
 .displayNone {
@@ -188,4 +189,13 @@ footer {
         display: none !important;
     }
 
+}
+
+.container-slider {
+   
+    background-color: $mainBlack;
+}
+
+::-webkit-scrollbar {
+    width: 0;
 }
