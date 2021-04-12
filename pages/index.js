@@ -40,11 +40,7 @@ const Home = () => {
             fade="left"
           />
 
-<<<<<<< HEAD
       <SliderMain />
-=======
-          {/* <SilderMain /> */}
->>>>>>> b558f39240d3f80244c2c7790f63c87c269fe215
 
           <BasicSection
             title="La Brasserie de La Luck"
