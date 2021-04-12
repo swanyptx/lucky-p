@@ -10,7 +10,7 @@ import Reviews from '../components/Reviews.js'
 import SilderMain from '../components/SliderMain.js'
 
 
-const Home = () => {
+const Home = (props) => {
 
   const [isAlreadyCame, setIsAlreadyCame] = useState("Waiting");
   const [hasNavbar, setHasNavbar] = useState(false);
@@ -49,8 +49,8 @@ const Home = () => {
             sectionName="brasserie"
             button={true}
             buttonContent="Voir la brasserie"
-            href="/"
             fade="right"
+            href="/brasserie"
           />
           <BasicSection
             title="Les Jeux de La Luck"
@@ -61,10 +61,10 @@ const Home = () => {
             sectionName="ludotheque"
             button={true}
             buttonContent="Voir la ludothèque"
-            href="/"
             fade="left"
+            href="/jeux"
           />
-          <Reviews />
+          <Reviews data={props.res} />
           <Calendar />
           <Booking />
           <Footer />
@@ -117,3 +117,24 @@ const Home = () => {
 }
 
 export default Home
+
+
+export async function getStaticProps(context) {
+  
+  let res;
+
+  try {
+    res = await fetch(
+      'http://localhost:5500/reviews'
+    ).then((res) => res.json());
+     
+
+  } catch (err) {
+    console.error(err);
+  }
+
+  return {
+    props: { res }
+  };
+
+}
