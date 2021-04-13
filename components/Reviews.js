@@ -14,10 +14,10 @@ export default function Reviews({ data }) {
     const reviews = data.map((review) => {
 
         function getNote(note) {
-            console.log(note);
-            for (let index = 0; index < note; index++) {
+            for (const index = 1; index < 4; index + 1) {
                 return(
-                    <img src="/assets/img/notes/star.svg" alt=""/>
+                   console.log(index),
+                   console.log(note)
                 )
             }
         }
