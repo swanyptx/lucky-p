@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import Booking from '../components/Booking.js'
 import Header from '../components/Header.js'
@@ -6,6 +6,7 @@ import Footer from '../components/Footer.js'
 import Jeu from '../components/Jeu.js'
 
 const Jeux = (props) => {
+
     return (
         <div>
             <Head>
@@ -19,7 +20,6 @@ const Jeux = (props) => {
             <section className="jeux">
                 <div className="py-20 sm:py-10 flex flex-col items-center justify-center ">
                     <h2 className="pb-10">Nos Jeux</h2>
-
                     <Jeu data={props.res}></Jeu>
 
                     <div className="text-center py-5">
@@ -50,6 +50,7 @@ export async function getStaticProps(context) {
     } catch (err) {
         console.error(err);
     }
+
 
     return {
         props: { res }

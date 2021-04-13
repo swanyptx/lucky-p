@@ -11,24 +11,24 @@ export default function Reviews({ data }) {
 
     const games = data.map((game) => {
 
-
+        const categories = game.categories
+        console.log(categories)
         return (
             <div key={game.title}>
                 {game.title}
+
+                {game.categories}
             </div>
         )
 
     })
 
+        return (
 
-    return (
-
-        <div className="games">
-            <h2 className="text-center p-5">L'avis de nos clients</h2>
-            <Slider {...gamesSettings}>
+            <div className="games">
+                <h2 className="text-center p-5">L'avis de nos clients</h2>
                 {games}
-            </Slider>
-        </div>
-    )
+            </div>
+        )
 }
 

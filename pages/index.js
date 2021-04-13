@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Head from 'next/head'
 import Calendar from '../components/Calendar'
 import Booking from '../components/Booking.js'
