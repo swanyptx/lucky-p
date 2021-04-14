@@ -3,43 +3,70 @@ import Slider from "react-slick"
 export default function Reviews({ data }) {
 
     var settings = {
-        dots: false,
-        infinite: true,
-        autoplay: true,
-        speed: 4000,
-        autoplaySpeed: 2000,
+
+        slidesToShow: 1,
+        dots: true,
+        speed: 600,
+        fade: 500,
+        // slidesToScroll: 4,
+        // responsive: [
+        //     {
+        //       breakpoint: 1024,
+        //       settings: {
+        //         slidesToShow: 3,
+        //         slidesToScroll: 3,
+        //         infinite: true,
+        //         dots: true
+        //       }
+        //     },
+        //     {
+        //       breakpoint: 600,
+        //       settings: {
+        //         slidesToShow: 2,
+        //         slidesToScroll: 2,
+        //         initialSlide: 2
+        //       }
+        //     },
+        //     {
+        //       breakpoint: 480,
+        //       settings: {
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1
+        //       }
+        //     }
+        //   ]
     };
 
-    function getNote(note) {
-        console.log(note);
-        for (let index = 0; index < note; index++) {
+    const reviews = data.map((review) => {
 
-            return (
-                <img src="/assets/img/notes/star.svg" alt="" />
-            )
+        function getNote(note) {
+            let arrayImgNote = [];
+            for (let index = 0; index < note; index++) {
+                arrayImgNote.push(<img src="/assets/img/notes/star.svg" alt="" />);
+            }
+            return arrayImgNote;
         }
 
-        const reviews = data.map((review) => {
-
-            return (
-                <div key={review.userName}>
-                    <div className="avis">
-                        <p>{review.userName}</p>
-                        <p>{review.review}</p>
-                        {getNote(review.note)}
-                    </div>
-                </div>
-            )
-
-        })
-
-
         return (
-            <div className="reviews">
-                <h2 className="text-center p-5">L'avis de nos clients</h2>
-                <Slider {...settings}>
-                    {reviews}
-                </Slider>
+            <div className="review text-white p-3">
+                <img className="avatar" src="/assets/img/notes/avatar.svg" alt="" />
+                <h3>{review.userName}</h3>
+                <div className="flex flex-row justify-center">
+                    {getNote(review.note)}
+                </div>
+                <p className="review-p">{review.review}</p>
             </div>
         )
-    }
+
+    })
+
+
+    return (
+        <div className="reviews py-10">
+            <h2 className="text-center py-5 text-2xl">L'avis de nos clients</h2>
+            <Slider {...settings} className="text-center">
+                {reviews}
+            </Slider>
+        </div>
+    )
+}
