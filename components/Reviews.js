@@ -1,34 +1,35 @@
 import Slider from "react-slick"
 
 export default function Reviews({ data }) {
-    
+
     var settings = {
         dots: false,
         infinite: true,
         autoplay: true,
         speed: 4000,
         autoplaySpeed: 2000,
-      };
+    };
+    
+    function getNote(note) {
+        console.log(note);
+        for (let index = 0; index < note; index++) {
 
+            return (
+                <img src="/assets/img/notes/star.svg" alt="" />
+            )
+
+        }
+    }
 
     const reviews = data.map((review) => {
 
-        function getNote(note) {
-            console.log(note);
-            for (let index = 0; index < note; index++) {
-                return(
-                    <img src="/assets/img/notes/star.svg" alt=""/>
-                )
-            }
-        }
-
-        return(
+        return (
             <div key={review.userName}>
-                    <div className="avis">
-                        <p>{review.userName}</p>
-                        <p>{review.review}</p>
-                        {getNote(review.note)}
-                    </div>
+                <div className="avis">
+                    <p>{review.userName}</p>
+                    <p>{review.review}</p>
+                    {getNote(review.note)}
+                </div>
             </div>
         )
 
