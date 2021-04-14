@@ -59,10 +59,10 @@
     background-color: $mainBlack;
     text-shadow: 1px 1px 2px black;
     position: fixed;
-    width: 100%;
     padding: 1rem 3rem;
     z-index: 2;
     top: 0;
+    width: 100%;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
 
@@ -113,8 +113,7 @@
     }
 
     .avatar {
-         width: 25px;
-
+        width: 25px;
     }
 
     //Pop-Up of the package undisplayed
@@ -167,7 +166,7 @@
     }
     @media (max-width: 1025px) {
         min-height: auto;
-        width: auto;
+        width: 100%;
         .reserve-button {
             font-size: 1rem;
         }
@@ -316,7 +315,6 @@ footer {
         background-color: $mainRed;
         color: $mainBlack;
         font-family: "Poppins", sans-serif;
-
         &-hastags {
             min-height: 10rem;
         }
@@ -345,7 +343,56 @@ footer {
         background: $mainRed;
     }
 }
+// Admin
 
+.adminSide {
+    background-color: $mainBlack;
+    min-height: 100vh;
+    .formAdd {
+        background-color: $mainRed;
+        min-width: 60%;
+        color: $mainWhite;
+        .inputAdd {
+            color: $mainBlack;
+        }
+        .buttonTest {
+            background-color: $mainGreen;
+            color: $mainWhite;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            &:hover {
+                background-color: darken($mainGreen, 5%);
+            }
+        }
+    }
+    .form-group-checkbox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+    .formSearch {
+        background-color: $mainRed;
+        color: $mainWhite;
+        .buttonTest {
+            @include goldenButton;
+        }
+        input {
+            color: $mainBlack;
+        }
+    }
+    .buttonSupp {
+        background-color: $mainYellow;
+        color: $mainWhite;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        &:hover {
+            background-color: darken($mainYellow, 10%);
+        }
+    }
+}
 
 .slick-dots li.slick-active button:before {
     color: white;
@@ -355,5 +402,4 @@ footer {
     background-color: $mainRed;
     max-width: 75%;
     border-radius: 2.5rem;
-
 }
