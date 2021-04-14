@@ -11,7 +11,7 @@ const SocialNetwork = () => {
 
     return (
         <section id="socialNetwork" className="socialNetwork lg:py-20 py-10">
-            <div data-aos={`fade-left`} className="container">
+            <div data-aos="fade-up" className="container">
                 <h2 className="text-center text-white p-10">Les Nouvelles de La Luck</h2>
 
                 <div className="md:flex justify-around items-center  lg:py-8">

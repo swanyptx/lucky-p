@@ -17,10 +17,8 @@ export default function Reviews({ data }) {
             return (
                 <img src="/assets/img/notes/star.svg" alt="" />
             )
-
         }
     }
-
     const reviews = data.map((review) => {
 
         return (

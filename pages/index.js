@@ -37,11 +37,11 @@ const Home = (props) => {
             reverse={true}
             sectionName="concept"
             button={false}
-            fade="left"
+            fade="up"
           />
-
-      <SliderMain />
-
+          <div className="w-screen">
+            <SliderMain />
+          </div>
           <BasicSection
             title="La Brasserie de La Luck"
             text="Côté cuisine, La Luck fait tout maison à partir d'un max de produits locaux. Clin d'oeil à nos racines québécoises, la Poutine revisitée est l'une des stars du menu. Notre brunch s'inspire aussi largement de Montréal."
@@ -50,7 +50,7 @@ const Home = (props) => {
             sectionName="brasserie"
             button={true}
             buttonContent="Voir la brasserie"
-            fade="right"
+            fade="up"
             href="/brasserie"
           />
           <BasicSection
@@ -62,10 +62,12 @@ const Home = (props) => {
             sectionName="ludotheque"
             button={true}
             buttonContent="Voir la ludothèque"
-            fade="left"
+            fade="up"
             href="/jeux"
           />
-          <Reviews data={props.res} />
+          <div className="w-screen overflow-hidden">
+            <Reviews data={props.res} />
+          </div>
           <Calendar />
           <Booking />
           <Footer />
@@ -88,13 +90,13 @@ const Home = (props) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       </Head>
 
       <div className="header flex flex-col justify-center items-center h-screen">
 
-        <Navbar displayNavbar={hasNavbar}></Navbar>
+        <Navbar displayNavbar={hasNavbar} alreadyCame={isAlreadyCame}></Navbar>
         <div className="headerTitle text-center">
           <h1>Bienvenue à</h1>
           <img className="p-3" src="/assets/img/logo/logo_laluck.svg" alt="La Luck" />
@@ -123,14 +125,14 @@ export default Home
 
 
 export async function getStaticProps(context) {
-  
+
   let res;
 
   try {
     res = await fetch(
       'http://localhost:5500/reviews'
     ).then((res) => res.json());
-     
+
 
   } catch (err) {
     console.error(err);

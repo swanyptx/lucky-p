@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 const BasicSection = ({ title, text, image, reverse, sectionName, button, buttonContent = "", href = "/", fade }) => {
     useEffect(() => {
 
-        Aos.init({ duration: 2000 });
+        Aos.init({ duration: 1500 });
 
     }, []);
 
