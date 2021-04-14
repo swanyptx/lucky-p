@@ -259,73 +259,84 @@ footer {
 }
 
 .container-slider {
-   
     background-color: $mainBlack;
 }
 
 ::-webkit-scrollbar {
     width: 0;
 }
-.carte{
+.carte {
     background-color: $mainGreen;
     height: fit-content;
-    h2{
+    h2 {
         color: white;
         font-family: "Vollkorn", sans-serif;
         font-size: 2rem;
     }
 }
-.jeux{
+.jeux {
     background-color: $mainBlack;
     color: white;
-    
-    h2{
+
+    h2 {
         font-family: "Vollkorn", sans-serif;
         font-size: 2rem;
     }
-    p{
+    p {
         width: 50%;
         margin: auto;
     }
-    a{
+    a {
         background-color: $mainYellow;
     }
-    figure{
+    figure {
         margin: auto;
         width: 30rem;
         height: auto;
-        img{
+        img {
             width: 100%;
         }
     }
 }
-.ludotheque{
+.ludotheque {
     background-color: $mainYellow;
-    h2{
+    h2 {
         color: white;
         font-family: "Vollkorn", sans-serif;
         font-size: 2rem;
     }
-    .search{
+    .search {
         min-width: fit-content;
         min-height: 20rem;
         background-color: $mainRed;
         color: $mainBlack;
         font-family: "Poppins", sans-serif;
-        &-ByName{
-        }
-        &-hastags{
+
+        &-hastags {
             min-height: 10rem;
         }
-        label{
+        label {
             color: $mainWhite;
         }
     }
-    .submit{
+    .submit {
         width: fit-content;
         background-color: $mainGreen;
         margin: auto;
         color: white;
+    }
+}
 
+.gameBlock {
+    background-color: #ffffff;
+
+    .fakeBlock {
+        height: 145px;
+        width: 145px;
+        background-color: grey;
+    }
+
+    .gameBlockCategorie {
+        background: $mainRed;
     }
 }
