@@ -23,6 +23,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
     //Search By Name
     function searchByName(name) {
         setSearchInputText(name.target.value)
+        console.log(searchInputText)
     }
 
     //Filter
@@ -64,7 +65,11 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                 <div className="flex flex-wrap p-3">
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="numberPlayer">Nombre de Joueurs</label>
-                                        <input type="number" id="numberPlayer" defaultValue="2" className="ml-6 p-2 w-12 rounded" />
+                                        <input 
+                                        type="number" 
+                                        id="numberPlayer" 
+                                        defaultValue="2"
+                                        className="ml-6 p-2 w-12 rounded"/>
                                     </div>
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="timePlayable">Temps</label>
