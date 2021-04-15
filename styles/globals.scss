@@ -310,7 +310,6 @@ footer {
         font-size: 2rem;
     }
     .search {
-        min-width: fit-content;
         min-height: 20rem;
         background-color: $mainRed;
         color: $mainBlack;
@@ -333,11 +332,7 @@ footer {
 .gameBlock {
     background-color: #ffffff;
 
-    .fakeBlock {
-        height: 145px;
-        width: 145px;
-        background-color: grey;
-    }
+
 
     .gameBlockCategorie {
         background: $mainRed;
