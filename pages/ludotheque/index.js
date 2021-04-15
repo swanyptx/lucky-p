@@ -21,36 +21,24 @@ const Ludotheque = ({ allGamesFromAPI }) => {
     const [searchInputPlayer, setSearchInputPlayer] = useState(2)
     const [searchInputTime, setSearchInputTime] = useState('(15 - 30)')
     const [searchInputDifficulty, setSearchInputDifficulty] = useState(1)
+    const [searchAdult, setSearchAdult] = useState()
+    const [searchCart, setSearchCart] = useState()
 
     const [gamesArray, setGamesArray] = useState(allGamesFromAPI)
-
-    //Search By Name
-    function searchByName(name) {
-
-        setSearchInputText(name.target.value)
-
-    }
-
-    function searchByNbPlayer(nbPlayer) {
-        setSearchInputPlayer(nbPlayer.target.value)
-    }
-
-    function searchByTime(time) {
-        setSearchInputTime(time.target.value)
-    }
-
-    function searchByDifficulty(difficulty) {
-        console.log(searchInputDifficulty)
-        setSearchInputDifficulty(difficulty.target.value)
-    }
+    
 
     //Filter
 
     const filteredGames = gamesArray.filter((game) => {
-        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
+
+        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty ) {
             return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
+            
         }
+        
     })
+
+
 
 
     return (
@@ -81,7 +69,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                         id="searchByName"
                                         className="search-ByName ml-6 p-2 rounded"
                                         value={searchInputText}
-                                        onChange={searchByName.bind(this)}
+                                        onChange={(e) => setSearchInputText(e.target.value)}
                                     />
                                 </div>
                                 <div className="flex flex-wrap p-3">
@@ -91,7 +79,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             type="number"
                                             id="numberPlayer"
                                             value={searchInputPlayer}
-                                            onChange={searchByNbPlayer.bind(this)}
+                                            onChange={(e) => setSearchInputPlayer(e.target.value)}
                                             className="ml-6 p-2 w-12 rounded" />
                                     </div>
                                     <div className="form-group flex flex-wrap m-3 items-center">
@@ -100,7 +88,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             name=""
                                             id="timePlayable"
                                             value={searchInputTime}
-                                            onChange={searchByTime.bind(this)}
+                                            onChange={(e) => setSearchByTime(e.target.value)}
                                             className="p-2 ml-6 rounded">
                                             <option value="(-15)">- 15min</option>
                                             <option value="(15 - 30)">15 - 30min</option>
@@ -114,7 +102,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             name=""
                                             id="difficulty"
                                             value={searchInputDifficulty}
-                                            onChange={searchByDifficulty.bind(this)}
+                                            onChange={(e) => setSearchInputDifficulty(e.target.value)}
                                             className="p-2 ml-6 rounded">
                                             <option value="0">----</option>
                                             <option value="1">Facile</option>
@@ -133,6 +121,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             type="checkbox" 
                                             id="Adult" 
                                             name="" 
+                                            onChange={(e) => setSearchAdult(e.target.checked)}
                                             />
                                         </div>
                                         <div className="form-group-checkbox">
@@ -146,7 +135,12 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                         </div>
                                         <div className="form-group-checkbox">
                                             <label htmlFor="Cards">Cartes</label>
-                                            <input type="checkbox" id="Cards" name="" />
+                                            <input
+                                            type="checkbox" 
+                                            id="Cards" 
+                                            name="" 
+                                            onChange={(e) => setSearchCart(e.target.checked)}
+                                            />
                                         </div>
                                         <div className="form-group-checkbox">
                                             <label htmlFor="Coop">Coopération</label>
