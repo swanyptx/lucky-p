@@ -173,6 +173,21 @@
     }
 }
 
+.bg-booking {
+    background-color: $mainYellow;
+
+    .bg-div {
+        // background-color: $mainRed;
+        // max-width: 50%;
+        min-width: 50%;
+        border-radius: 10px;
+    }
+
+    .test-btn {
+        // max-width: 90%;
+    }
+}
+
 //SOCIAL NETWORK
 
 .socialNetwork {
