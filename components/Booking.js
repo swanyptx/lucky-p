@@ -25,7 +25,7 @@ const Booking = () => {
                         <h3>Je souhaite réserver !</h3>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit consectetur, dolorem odio doloremque numquam provident. Placeat explicabo dolor voluptatum neque.</p>
                     </div>
-                        <Link href="/">
+                        <Link href="/booking">
                             <a className="reserve-button rounded py-2 px-4 font-bold">Réserver</a>
                         </Link>
                 </div>
