@@ -18,18 +18,40 @@ export const getStaticProps = async () => {
 const Ludotheque = ({ allGamesFromAPI }) => {
 
     const [searchInputText, setSearchInputText] = useState('')
+    const [searchInputPlayer, setSearchInputPlayer] = useState(2)
+    const [searchInputTime, setSearchInputTime] = useState('(15 - 30)')
+    const [searchInputDifficulty, setSearchInputDifficulty] = useState(1)
+
     const [gamesArray, setGamesArray] = useState(allGamesFromAPI)
 
     //Search By Name
     function searchByName(name) {
+
         setSearchInputText(name.target.value)
-        console.log(searchInputText)
+
+    }
+
+    function searchByNbPlayer(nbPlayer) {
+        setSearchInputPlayer(nbPlayer.target.value)
+    }
+
+    function searchByTime(time) {
+        setSearchInputTime(time.target.value)
+    }
+
+    function searchByDifficulty(difficulty) {
+        console.log(searchInputDifficulty)
+        setSearchInputDifficulty(difficulty.target.value)
     }
 
     //Filter
+
     const filteredGames = gamesArray.filter((game) => {
-        return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1;
+        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
+            return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
+        }
     })
+
 
     return (
         <div>
@@ -65,28 +87,92 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                 <div className="flex flex-wrap p-3">
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="numberPlayer">Nombre de Joueurs</label>
-                                        <input 
-                                        type="number" 
-                                        id="numberPlayer" 
-                                        defaultValue="2"
-                                        className="ml-6 p-2 w-12 rounded"/>
+                                        <input
+                                            type="number"
+                                            id="numberPlayer"
+                                            value={searchInputPlayer}
+                                            onChange={searchByNbPlayer.bind(this)}
+                                            className="ml-6 p-2 w-12 rounded" />
                                     </div>
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="timePlayable">Temps</label>
-                                        <input type="time" id="timePlayable" defaultValue="00:00" className="ml-6 p-2 rounded" />
+                                        <select
+                                            name=""
+                                            id="timePlayable"
+                                            value={searchInputTime}
+                                            onChange={searchByTime.bind(this)}
+                                            className="p-2 ml-6 rounded">
+                                            <option value="(-15)">- 15min</option>
+                                            <option value="(15 - 30)">15 - 30min</option>
+                                            <option value="(30 - 60)">30 - 60min</option>
+                                            <option value="(+60)">+ 60min</option>
+                                        </select>
                                     </div>
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="difficulty">Difficulté</label>
-                                        <select name="" id="difficulty" className="p-2 ml-6 rounded">
+                                        <select
+                                            name=""
+                                            id="difficulty"
+                                            value={searchInputDifficulty}
+                                            onChange={searchByDifficulty.bind(this)}
+                                            className="p-2 ml-6 rounded">
+                                            <option value="0">----</option>
                                             <option value="1">Facile</option>
                                             <option value="2">Intermédiaire</option>
                                             <option value="3">Pro</option>
+                                            <option value="4">Varié</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div className="form-group flex items-start p-6">
-                                    <label htmlFor="searchByHashtags">Hashtag</label>
-                                    <input type="text" id="searchByHashtags" className="search-hastags rounded ml-11 mb-6 p-2" />
+                                <div className="form-group flex flex-col p-4 col-span-1 md:col-span-2 py-6">
+                                    <label htmlFor="categories" className="py-4">Catégories</label>
+                                    <div className="w-full grid md:grid-cols-3 grid-flow-row gap-4 text-center" >
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Adult">Adulte</label>
+                                            <input 
+                                            type="checkbox" 
+                                            id="Adult" 
+                                            name="" 
+                                            />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Ambiance">Ambiance</label>
+                                            <input type="checkbox" id="Ambiance" name="" />
+                                        </div>
+
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Bluff">Bluff</label>
+                                            <input type="checkbox" id="Bluff" name="" />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Cards">Cartes</label>
+                                            <input type="checkbox" id="Cards" name="" />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Coop">Coopération</label>
+                                            <input type="checkbox" id="Coop" name="" />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Draw">Dessin</label>
+                                            <input type="checkbox" id="Draw" name="" />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Dexterity">Dextérité</label>
+                                            <input type="checkbox" id="Dexterity" name="" />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Child">Enfants</label>
+                                            <input type="checkbox" id="Child" name="" />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Management">Gestion</label>
+                                            <input type="checkbox" id="Management" name="" />
+                                        </div>
+                                        <div className="form-group-checkbox">
+                                            <label htmlFor="Strategy">Stratégie</label>
+                                            <input type="checkbox" id="Strategy" name="" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <button className="submit rounded py-3 px-4 font-bold" type="submit">Rechercher</button>
                             </form>
