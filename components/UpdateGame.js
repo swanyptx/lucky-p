@@ -1,8 +1,22 @@
 import React, { useState } from 'react'
 
-const UpdateGame = () => {
 
-    const [divModify, setDivModify] = useState(false)
+export const getStaticProps = async () => {
+    // Call an external API endpoint to get posts
+    const res = await fetch('http://localhost:5500/games');
+    const data = await res.json()
+
+    return {
+        props: { allGamesFromAPI: data }
+    }
+}
+
+const UpdateGame = ({allGamesFromApi}) => {
+
+
+    const [GamesArray, setGamesArray] = useState(allGamesFromApi)
+    console.log(GamesArray)
+
 
     return (
         <div className="flex justify-center items-center flex-col">
