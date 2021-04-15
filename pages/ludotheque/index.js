@@ -18,16 +18,41 @@ export const getStaticProps = async () => {
 const Ludotheque = ({ allGamesFromAPI }) => {
 
     const [searchInputText, setSearchInputText] = useState('')
+    const [searchInputPlayer, setSearchInputPlayer] = useState(2)
+    const [searchInputTime, setSearchInputTime] = useState('')
     const [gamesArray, setGamesArray] = useState(allGamesFromAPI)
 
     //Search By Name
     function searchByName(name) {
+        console.log(searchInputText)
         setSearchInputText(name.target.value)
+    }
+
+    function searchByNbPlayer(nbPlayer) {
+        console.log(searchInputPlayer)
+        setSearchInputPlayer(nbPlayer.target.value)
+    }
+
+    function searchByTime(time) {
+        console.log(searchInputTime)
+        setSearchInputTime(time.target.value)
     }
 
     //Filter
     const filteredGames = gamesArray.filter((game) => {
         return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1;
+    })
+
+    const filteredByNbPlayer = gamesArray.filter((game) => {
+        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer) {
+            return game.title
+        }
+    })
+
+    const filteredByTime = gamesArray.filter((game) => {
+        if (game.gameTimes == searchInputTime) {
+            return game.title
+        }
     })
 
     return (
@@ -64,15 +89,33 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                 <div className="flex flex-wrap p-3">
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="numberPlayer">Nombre de Joueurs</label>
-                                        <input type="number" id="numberPlayer" defaultValue="2" className="ml-6 p-2 w-12 rounded" />
+                                        <input
+                                            type="number"
+                                            id="numberPlayer"
+                                            value={searchInputPlayer}
+                                            onChange={searchByNbPlayer.bind(this)}
+                                            className="ml-6 p-2 w-12 rounded" />
                                     </div>
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="timePlayable">Temps</label>
-                                        <input type="time" id="timePlayable" defaultValue="00:00" className="ml-6 p-2 rounded" />
+                                        <select
+                                            name=""
+                                            id="timePlayable"
+                                            value={searchInputTime}
+                                            onChange={searchByTime.bind(this)}
+                                            className="p-2 ml-6 rounded">
+                                            <option value="(-15)">- 15min</option>
+                                            <option value="(15 - 30)">15 - 30min</option>
+                                            <option value="(30 - 60)">30 - 60min</option>
+                                            <option value="(+60)">+ 60min</option>
+                                        </select>
                                     </div>
                                     <div className="form-group flex flex-wrap m-3 items-center">
                                         <label htmlFor="difficulty">Difficulté</label>
-                                        <select name="" id="difficulty" className="p-2 ml-6 rounded">
+                                        <select
+                                            name=""
+                                            id="difficulty"
+                                            className="p-2 ml-6 rounded">
                                             <option value="1">Facile</option>
                                             <option value="2">Intermédiaire</option>
                                             <option value="3">Pro</option>
@@ -93,7 +136,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                         <h2>Résultats</h2>
                         <hr className="w-80" />
                         <div className="grid grid-cols-4 gap-4">
-                            {filteredGames.map(game => {
+                            {filteredByTime.map(game => {
 
                                 //Shorten preamble
                                 let maxLength = 140;
