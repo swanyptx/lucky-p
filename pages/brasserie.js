@@ -3,15 +3,7 @@ import Head from 'next/head'
 import Booking from '../components/Booking.js'
 import Header from '../components/Header.js'
 import Footer from '../components/Footer.js'
-import Burger from '../components/Card/Burger'
-import Desserts from '../components/Card/Desserts'
-import Softs from '../components/Card/Softs'
-import Bieres from '../components/Card/Bieres'
-import Vins from '../components/Card/Vins'
-import Cocktails from '../components/Card/Cocktails'
-import Poutines from '../components/Card/Poutines'
-import Brunchs from '../components/Card/Brunchs'
-import { info } from 'node-sass'
+import Menu from '../components/Card/Menu'
 
 export const getStaticProps = async () => {
     // Call an external API endpoint to get posts
@@ -23,12 +15,27 @@ export const getStaticProps = async () => {
     }
 }
 
-const Brasserie = ({allMenusFromAPI}) => {
+const Brasserie = ({ allMenusFromAPI }) => {
 
-    const [carte, setCarte] = useState("")
     const [carteMenu, setcarteMenu] = useState(allMenusFromAPI)
+    const [carte, setCarte] = useState("")
+    const [bonus, setBonus] = useState("")
+    const [bonusTwo, setBonusTwo] = useState("")
+    const [bonusThree, setBonusThree] = useState("")
+    const listeMenu = () => {
 
-
+        const menu = carteMenu.filter((menu) => {
+            if (menu.type === carte || menu.type == bonus || menu.type == bonusTwo || menu.type == bonusThree) {
+                return menu
+            }
+        })
+        return (
+            <Menu
+                data={menu}
+                name={carte}
+            />
+        )
+    }
 
     return (
         <div>
@@ -41,24 +48,24 @@ const Brasserie = ({allMenusFromAPI}) => {
             </Head>
             <Header></Header>
             <section className="carte">
-                <div className="container h-screen py-20 sm:py-10 flex flex-col items-center ">
+                <div className="container py-20 sm:py-10 flex flex-col items-center ">
                     <h2>Nos Cartes</h2>
                     <div className="">
                         <div>
                             <nav>
-                                <ul className="flex w-screen justify-around">
-                                    <li onClick={() => setCarte("Burger")}>Burgers</li>
-                                    <li onClick={() => setCarte("Desserts")}>Desserts</li>
-                                    <li onClick={() => setCarte("Softs")}>Softs</li>
-                                    <li onClick={() => setCarte("Bieres")}>Bières</li>
-                                    <li onClick={() => setCarte("Vins")}>Vins</li>
-                                    <li onClick={() => setCarte("Cocktails")}>Cocktails</li>
-                                    <li onClick={() => setCarte("Poutines")}>Poutines</li>
-                                    <li onClick={() => setCarte("Brunchs")}>Brunchs</li>
+                                <ul className="flex w-screen justify-around py-10">
+                                    <li className="menuLi" onClick={() => {setCarte("Burger"); setBonus(""); setBonusTwo("");setBonusThree("")}}>Burgers</li>
+                                    <li className="menuLi" onClick={() => {setCarte("Dessert"); setBonus(""); setBonusTwo("");setBonusThree("")}}>Desserts</li>
+                                    <li className="menuLi" onClick={() => {setCarte("Soft"); setBonus("Coffee"); setBonusTwo("Tea");setBonusThree("")}}>Softs, Cafés, Thé</li>
+                                    <li className="menuLi" onClick={() => {setCarte("DraughtBeer"); setBonus("BottledBeer"); setBonusTwo("Cider");setBonusThree("")}}>Bières, Cidres</li>
+                                    <li className="menuLi" onClick={() => {setCarte("Vin"); setBonus("WhiteWine"); setBonusTwo("PinkWine");setBonusThree("RedWine")}}>Vins</li>
+                                    <li className="menuLi" onClick={() => {setCarte("Cocktail"); setBonus("CocktailNoAlcool"); setBonusTwo("");setBonusThree("")}}>Cocktails</li>
+                                    <li className="menuLi" onClick={() => {setCarte("Poutine"); setBonus(""); setBonusTwo("");setBonusThree("")}}>Poutines</li>
+                                    <li className="menuLi" onClick={() => {setCarte("Brunch"); setBonus(""); setBonusTwo("");setBonusThree("")}}>Brunchs</li>
                                 </ul>
                             </nav>
-                            <div>
-                                {carte}
+                            <div className="container flex justify-center text-center py-10">
+                                {listeMenu()}
                             </div>
                         </div>
                     </div>

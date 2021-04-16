@@ -404,3 +404,34 @@ footer {
     max-width: 75%;
     border-radius: 2.5rem;
 }
+
+// Brasserie
+.carte {
+    min-height: 90vh;
+    .menu-text {
+        max-width: 60%;
+        margin: auto;
+
+        &-price {
+            font-size: 2rem;
+        }
+    }
+    .menuLi {
+        color: $mainWhite;
+        cursor: pointer;
+        &:hover {
+            color: black;
+        }
+    }
+    .titleCardMenu{
+        color: $mainWhite;
+    }
+}
+.cardMenu{
+    color: $mainWhite;
+    hr{
+        width: 30%;
+        margin: auto;
+        padding: 3rem 0;
+    }
+}
