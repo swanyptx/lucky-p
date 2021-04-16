@@ -11,10 +11,23 @@ import Vins from '../components/Card/Vins'
 import Cocktails from '../components/Card/Cocktails'
 import Poutines from '../components/Card/Poutines'
 import Brunchs from '../components/Card/Brunchs'
+import { info } from 'node-sass'
 
-const Brasserie = () => {
+export const getStaticProps = async () => {
+    // Call an external API endpoint to get posts
+    const res = await fetch('http://localhost:5500/menus');
+    const data = await res.json()
+
+    return {
+        props: { allMenusFromAPI: data }
+    }
+}
+
+const Brasserie = ({allMenusFromAPI}) => {
 
     const [carte, setCarte] = useState("")
+    const [carteMenu, setcarteMenu] = useState(allMenusFromAPI)
+
 
 
     return (
@@ -34,14 +47,14 @@ const Brasserie = () => {
                         <div>
                             <nav>
                                 <ul className="flex w-screen justify-around">
-                                    <li onClick={() => setCarte(Burger)}>Burgers</li>
-                                    <li onClick={() => setCarte(Desserts)}>Desserts</li>
-                                    <li onClick={() => setCarte(Softs)}>Softs</li>
-                                    <li onClick={() => setCarte(Bieres)}>Bières</li>
-                                    <li onClick={() => setCarte(Vins)}>Vins</li>
-                                    <li onClick={() => setCarte(Cocktails)}>Cocktails</li>
-                                    <li onClick={() => setCarte(Poutines)}>Poutines</li>
-                                    <li onClick={() => setCarte(Brunchs)}>Brunchs</li>
+                                    <li onClick={() => setCarte("Burger")}>Burgers</li>
+                                    <li onClick={() => setCarte("Desserts")}>Desserts</li>
+                                    <li onClick={() => setCarte("Softs")}>Softs</li>
+                                    <li onClick={() => setCarte("Bieres")}>Bières</li>
+                                    <li onClick={() => setCarte("Vins")}>Vins</li>
+                                    <li onClick={() => setCarte("Cocktails")}>Cocktails</li>
+                                    <li onClick={() => setCarte("Poutines")}>Poutines</li>
+                                    <li onClick={() => setCarte("Brunchs")}>Brunchs</li>
                                 </ul>
                             </nav>
                             <div>
