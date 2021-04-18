@@ -408,10 +408,9 @@ footer {
 // Brasserie
 .carte {
     min-height: 90vh;
+    width: 100%;
     .menu-text {
-        max-width: 60%;
         margin: auto;
-
         &-price {
             font-size: 2rem;
         }
@@ -419,19 +418,32 @@ footer {
     .menuLi {
         color: $mainWhite;
         cursor: pointer;
+        background-color: $mainYellow;
+        box-shadow: 3px 3px 3px 3px #012e2ae5;
+        text-align: center;
         &:hover {
-            color: black;
+            background-color: darken($mainYellow, 10%);
         }
     }
-    .titleCardMenu{
+    .titleCardMenu {
+        font-weight: bold;
         color: $mainWhite;
     }
+    .menuUl {
+        min-width: inherit;
+    }
+    .titleMobile {
+        background-color: $mainYellow;
+        &:hover {
+            background-color: darken($mainYellow, 10%);
+        }
+    }
 }
-.cardMenu{
+.cardMenu {
     color: $mainWhite;
-    hr{
+    hr {
         width: 30%;
         margin: auto;
-        padding: 3rem 0;
+        padding: 1rem 0;
     }
 }

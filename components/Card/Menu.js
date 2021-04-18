@@ -20,8 +20,8 @@ const Menu = ({ data, name }) => {
         }
 
         return (
-            <div className="py-12 cardMenu">
-                <h3>{menu.name}</h3>
+            <div className="py-6 cardMenu">
+                <h2>{menu.name}</h2>
                 <div className="menu-text py-6">
                     <p>{menu.description}</p>
                     <p className="menu-text-price py-4"> {menu.price} € {prix}</p>
@@ -33,7 +33,7 @@ const Menu = ({ data, name }) => {
 
     return (
         <div>
-            <h1 className={name == "" ? "displayNone" : "titleCardMenu"}>{`Nos ${titre}s`}</h1>
+            <h2 className={name == "" ? "displayNone" : "titleCardMenu py-4"}>{`Nos ${titre}s`}</h2>
             {name}
         </div>
     )
