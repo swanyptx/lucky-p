@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer id="contact">
             <div className="flex justify-center items-center py-8 px-8 ">
-                <div className="flex justify-around justify-items-center grid grid-col-1 gap-8 py-8  md:grid-cols-2 lg:grid-cols-4 ">
+                <div className="w-screen flex justify-around justify-items-center grid grid-col-1 gap-8 py-8  md:grid-cols-2 lg:grid-cols-4 ">
                     <div>
                         <h2>Adresse</h2>
                         <div className="mb-3">

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const Navbar = ({displayNavbar}) => {
+const Navbar = ({displayNavbar, alreadyCame}) => {
 
     const [isHidden, setIsHidden] = useState(true);
-
+    
     function notHidden() {
         setIsHidden(false);
     }
@@ -11,6 +11,8 @@ const Navbar = ({displayNavbar}) => {
     function hidden() {
         setIsHidden(true);
     }
+
+
 
     return (
         // <div className="container navbar md:flex md:items-center md:justify-between p-4">
@@ -30,17 +32,17 @@ const Navbar = ({displayNavbar}) => {
             <nav className={isHidden ? "hidden md:block" : ""}>
                 <ul className="list-reset md:flex md:items-center">
                     <li className="md:ml-4">
-                        <a className="block no-underline hover:underline py-2 text-white hover:white md:border-none md:p-0" href="#concept">
+                        <a className={alreadyCame == "NewCustomer" ? "block no-underline hover:underline py-2 text-white hover:white md:border-none md:p-0" : "displayNone"} href="#concept">
                             Le Concept
                         </a>
                     </li>
                     <li className="md:ml-4">
-                        <a className="border-t block no-underline hover:underline py-2 text-white hover:white md:border-none md:p-0" href="#brasserie">
+                        <a className="border-t block no-underline hover:underline py-2 text-white hover:white md:border-none md:p-0" href={alreadyCame == "NewCustomer" ? "#brasserie" : "/brasserie"}>
                             La Brasserie
                         </a>
                     </li>
                     <li className="md:ml-4">
-                        <a className="border-t block no-underline hover:underline py-2 text-white hover:white md:border-none md:p-0" href="#ludotheque">
+                        <a className="border-t block no-underline hover:underline py-2 text-white hover:white md:border-none md:p-0" href={alreadyCame == "NewCustomer" ? "#ludotheque" : "/ludotheque"}>
                             La Ludothèque
                         </a>
                     </li>
