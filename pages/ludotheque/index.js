@@ -26,6 +26,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
     const [searchInputTime, setSearchInputTime] = useState('(15 - 30)')
     const [searchInputDifficulty, setSearchInputDifficulty] = useState(1)
     const [gamesArray, setGamesArray] = useState(allGamesFromAPI)
+    const [categoriesText, setCategoriesText] = useState([]);
 
     const navbarBooking = true;
 
@@ -39,6 +40,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
 
     })
 
+    //CATEGORIES CHECKED
 
     return (
         <div>
@@ -119,7 +121,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 p-2" >
                                         {/* <div className="w-full grid md:grid-cols-3 grid-flow-row gap-4 p-2" > */}
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Adult" name="" onChange={(e) => setSearchAdult(e.target.checked)} />
+                                            <input type="checkbox" id="Adult" name="" value="60744fd321882cb44ef430b7" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Adult">Adulte</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
@@ -196,6 +198,20 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                     arrayCategories.push(
                                         <div className="gameBlockCategorie text-white rounded-sm p-1 m-1">{game.categories[index].categorieName}</div>
                                     )
+                                }
+
+                                console.log()
+
+                                const categoriesTextMapping = categoriesText.map(categories => {
+                                    for (let index = 0; index. < categ; index++) {
+
+                                    }
+                                })
+
+                                function getCheck(value) {
+                                    categoriesText.push(value)
+                                    if (categoriesText === game.categories)
+                                        console.log(categoriesText)
                                 }
 
                                 return (
