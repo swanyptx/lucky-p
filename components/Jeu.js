@@ -4,31 +4,33 @@ export default function Reviews({ data }) {
 
     var gamesSettings = {
         dots: false,
-        infinite: true,
-        speed: 4000,
+        slidesPerRow: 3
     };
 
 
     const games = data.map((game) => {
 
-        const categories = game.categories
-        console.log(categories)
+        let arrayCategories = [];
+        for (let index = 0; index < game.categories.length; index++) {
+            arrayCategories.push(<p>{game.categories[index].categorieName}</p>)
+        }
+
         return (
             <div key={game.title}>
-                {game.title}
-
-                {game.categories}
+                {arrayCategories}
             </div>
         )
 
     })
 
-        return (
+    return (
 
-            <div className="games">
-                <h2 className="text-center p-5">L'avis de nos clients</h2>
-                {games}
-            </div>
-        )
+
+
+        <div className="games">
+            <h2 className="text-center p-5">L'avis de nos clients</h2>
+            {games}
+        </div>
+    )
 }
 

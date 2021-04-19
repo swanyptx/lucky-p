@@ -37,10 +37,10 @@ const Home = (props) => {
             reverse={true}
             sectionName="concept"
             button={false}
-            fade="left"
+            fade="top"
           />
 
-      <SliderMain />
+      {/* <SliderMain /> */}
 
           <BasicSection
             title="La Brasserie de La Luck"
@@ -50,7 +50,7 @@ const Home = (props) => {
             sectionName="brasserie"
             button={true}
             buttonContent="Voir la brasserie"
-            fade="right"
+            fade="top"
             href="/brasserie"
           />
           <BasicSection
@@ -62,10 +62,10 @@ const Home = (props) => {
             sectionName="ludotheque"
             button={true}
             buttonContent="Voir la ludothèque"
-            fade="left"
+            fade="top"
             href="/jeux"
           />
-          <Reviews data={props.res} />
+          {/* <Reviews data={props.res} /> */}
           <Calendar />
           <Booking />
           <Footer />
