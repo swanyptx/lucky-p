@@ -27,20 +27,56 @@ const Ludotheque = ({ allGamesFromAPI }) => {
     const [searchInputDifficulty, setSearchInputDifficulty] = useState(1)
     const [gamesArray, setGamesArray] = useState(allGamesFromAPI)
     const [categoriesText, setCategoriesText] = useState([]);
+    const [filteredGames, setFilteredGames] = useState(gamesArray);
 
     const navbarBooking = true;
 
     //Filter
 
-    const filteredGames = gamesArray.filter((game) => {
+    // setFilteredGames(gamesArray.filter((game) => {
 
-        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
-            return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
+    //     if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
+    //         return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
+    //     }
+
+    // }))
+
+    function getGames(items, index) {
+        console.log(items)
+        console.log(index)
+        const newItems = [];
+        items.forEach(item => {
+            item.categories.forEach(category => {
+                if (category._id.includes(categoriesText[index])) {
+                    newItems.push(item);
+                }
+            });
+        });
+        console.log(newItems);
+        if (categoriesText.length > index + 1) {
+            getGames(newItems, index + 1)
+        } else {
+            setFilteredGames(newItems)
         }
-
-    })
+    }
 
     //CATEGORIES CHECKED
+    function getCheck(value) {
+        const newCategories = [...categoriesText];
+        newCategories.push(value)
+        setCategoriesText(newCategories);
+    }
+
+    useEffect(
+        () => {
+            console.log(categoriesText)
+            if (categoriesText.length > 0) {
+                getGames(filteredGames, 0);
+            }
+        }, [categoriesText]
+    )
+
+
 
     return (
         <div>
@@ -125,7 +161,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             <label className="pl-2" htmlFor="Adult">Adulte</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Ambiance" name="" />
+                                            <input type="checkbox" id="Ambiance" name="" value="60744fd321882cb44ef430b4" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Ambiance">Ambiance</label>
                                         </div>
 
@@ -198,20 +234,6 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                     arrayCategories.push(
                                         <div className="gameBlockCategorie text-white rounded-sm p-1 m-1">{game.categories[index].categorieName}</div>
                                     )
-                                }
-
-                                console.log()
-
-                                const categoriesTextMapping = categoriesText.map(categories => {
-                                    for (let index = 0; index. < categ; index++) {
-
-                                    }
-                                })
-
-                                function getCheck(value) {
-                                    categoriesText.push(value)
-                                    if (categoriesText === game.categories)
-                                        console.log(categoriesText)
                                 }
 
                                 return (
