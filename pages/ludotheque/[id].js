@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Footer from '../../components/Footer.js'
+import Navbar from '../../components/Navbar.js'
 
 
 export const getStaticPaths = async () => {
@@ -31,6 +32,8 @@ export const getStaticProps = async (context) => {
 
 
 const Details = ({ game }) => {
+
+    const navbarBooking = true;
 
     const gameItem = game.map(game => {
 
@@ -66,8 +69,28 @@ const Details = ({ game }) => {
             }
         }
 
+        function itemsContent() {
+            if (game.content == [] || game.content == undefined || game.content == "") {
+                return (
+                    <p>Ce jeu ne contient pour le moment aucune description concernant son contenu</p>
+                )
+            } else {
+                 const lolo = game.content.forEach((contentItem) => {
+                <p>{contentItem}</p>
+                })
+                return (  
+                <div>
+                    <p>Ce jeu contient les objets suivants : </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 p-2">
+                        {game.content}
+                    </div> 
+                </div>
+                )
+            }
+        } 
+
         return (
-            <section id="contact" className="reserver lg:static flex justify-center lg:py-20 ">
+            <section key={game._id} id="contact" className="reserver lg:static flex justify-center lg:py-20 ">
                 <div className="container flex flex-col justify-center lg:py-8 text-white">
                 <div className="fakeBlock"></div>
                     <h1 className="font-bold">{game.title}</h1>
@@ -98,18 +121,18 @@ const Details = ({ game }) => {
                                 <p>A partir de {game.minAge} ans</p>
                             </div>
                         </div>
-                        <ul class="flex">
-                            <li class="mr-6">
-                                <a class="text-blue-500 hover:text-blue-800" href="#description">Description</a>
+                        <ul className="flex">
+                            <li className="mr-6">
+                                <a className="text-blue-500 hover:text-blue-800" href="#description">Description</a>
                             </li> 
-                            <li class="mr-6">
-                                <a class="text-blue-500 hover:text-blue-800" href="#goal">But du Jeu</a>
+                            <li className="mr-6">
+                                <a className="text-blue-500 hover:text-blue-800" href="#goal">But du Jeu</a>
                             </li>
-                            <li class="mr-6">
-                                <a class="text-blue-500 hover:text-blue-800" href="#rules">Règle</a>
+                            <li className="mr-6">
+                                <a className="text-blue-500 hover:text-blue-800" href="#rules">Règle</a>
                             </li>
-                            <li class="mr-6">
-                                <a class="text-blue-500 hover:text-blue-800" href="#content">Contenu</a>
+                            <li className="mr-6">
+                                <a className="text-blue-500 hover:text-blue-800" href="#content">Contenu</a>
                             </li>
 
                         </ul>
@@ -122,11 +145,12 @@ const Details = ({ game }) => {
                         </div>
                         <div id="rules" className="py-3">
                             <h3>Règles :</h3>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/82yVPNwC8cY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe className="w-full h-full md:w-6/12 mdw-6/12 lg:w-160 lg:h-80" src={`https://www.youtube.com/embed/${game.videoURL}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
+                        {/* width="560" height="315" */}
                         <div id="content" className="py-3">
                             <h3>Contenu :</h3>
-                        {game.description}
+                            {itemsContent()}
                         </div>
                     </div>
                 </div>
@@ -143,6 +167,9 @@ const Details = ({ game }) => {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
             </Head>
+             <Navbar displayNavbar={navbarBooking} 
+            booking = {false}
+            ></Navbar>
             <div>
                 {gameItem}
             </div>
