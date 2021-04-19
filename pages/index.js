@@ -63,7 +63,7 @@ const Home = (props) => {
             button={true}
             buttonContent="Voir la ludothèque"
             fade="up"
-            href="/jeux"
+            href="/games"
           />
           <div className="w-screen overflow-hidden">
             <Reviews data={props.res} />

@@ -145,8 +145,9 @@ const Details = ({ game }) => {
                         </div>
                         <div id="rules" className="py-3">
                             <h3>Règles :</h3>
-                            <iframe width="560" height="315" src={`https://www.youtube.com/embed/${game.videoURL}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe className="w-full h-full md:w-6/12 mdw-6/12 lg:w-160 lg:h-80" src={`https://www.youtube.com/embed/${game.videoURL}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
+                        {/* width="560" height="315" */}
                         <div id="content" className="py-3">
                             <h3>Contenu :</h3>
                             {itemsContent()}

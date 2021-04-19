@@ -55,7 +55,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                 booking={false}
             ></Navbar>
             <section className="ludotheque">
-                <div className="container py-20 sm:py-10 flex flex-col items-center justify-center ">
+                <div className="container py-20 sm:py-10 flex flex-col items-center justify-center">
 
                     <h2>Nos Jeux</h2>
 
