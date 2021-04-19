@@ -91,11 +91,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             id="timePlayable"
                                             value={searchInputTime}
                                             onChange={(e) => setSearchInputTime(e.target.value)}
-<<<<<<< HEAD
-                                            className="p-2 ml-6 rounded">
-=======
-                                            className="p-2  rounded">
->>>>>>> 6f24d44068512ad92b97eebf92b9cc6a2c85a186
+                                            className="p-2 rounded">
                                             <option value="(-15)">- 15min</option>
                                             <option value="(15 - 30)">15 - 30min</option>
                                             <option value="(30 - 60)">30 - 60min</option>

@@ -8,33 +8,7 @@ export default function Reviews({ data }) {
         dots: true,
         speed: 600,
         fade: 500,
-        // slidesToScroll: 4,
-        // responsive: [
-        //     {
-        //       breakpoint: 1024,
-        //       settings: {
-        //         slidesToShow: 3,
-        //         slidesToScroll: 3,
-        //         infinite: true,
-        //         dots: true
-        //       }
-        //     },
-        //     {
-        //       breakpoint: 600,
-        //       settings: {
-        //         slidesToShow: 2,
-        //         slidesToScroll: 2,
-        //         initialSlide: 2
-        //       }
-        //     },
-        //     {
-        //       breakpoint: 480,
-        //       settings: {
-        //         slidesToShow: 1,
-        //         slidesToScroll: 1
-        //       }
-        //     }
-        //   ]
+
     };
 
     const reviews = data.map((review) => {
@@ -48,11 +22,13 @@ export default function Reviews({ data }) {
         }
 
         return (
-            <div className="review text-white p-3">
+            <div key={review.name} className="review text-white p-3 flex justify-center">
                 {/* <img className="avatar" src="/assets/img/notes/avatar.svg" alt="" /> */}
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+                <div className="flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                    </svg>
+                </div>
                 <h3>{review.userName}</h3>
                 <div className="flex flex-row justify-center">
                     {getNote(review.note)}
