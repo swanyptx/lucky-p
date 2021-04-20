@@ -31,7 +31,8 @@ html {
     h2 {
         // color: $mainWhite;
         font-size: 2.5rem;
-        font-family: "Vollkorn", sans-serif;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
         text-align: center;
         @media (max-width: 1025px) {
             font-size: 1.8rem;
@@ -41,7 +42,7 @@ html {
     h3 {
         color: $mainWhite;
         font-size: 2rem;
-        font-family: "Vollkorn", sans-serif;
+        font-family: "Poppins", sans-serif;
         @media (max-width: 1025px) {
             font-size: 1.5rem;
         }

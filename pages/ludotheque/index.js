@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Booking from '../../components/Booking.js'
-import Header from '../../components/Header.js'
 import Footer from '../../components/Footer.js'
+import Navbar from '../../components/Navbar.js'
 import Link from 'next/link'
+
+
 
 export const getStaticProps = async () => {
     // Call an external API endpoint to get posts
@@ -15,28 +16,76 @@ export const getStaticProps = async () => {
     }
 }
 
+
+
+
 const Ludotheque = ({ allGamesFromAPI }) => {
 
     const [searchInputText, setSearchInputText] = useState('')
     const [searchInputPlayer, setSearchInputPlayer] = useState(2)
     const [searchInputTime, setSearchInputTime] = useState('(15 - 30)')
     const [searchInputDifficulty, setSearchInputDifficulty] = useState(1)
-
-
     const [gamesArray, setGamesArray] = useState(allGamesFromAPI)
-    
+    const [categoriesText, setCategoriesText] = useState([]);
+    const [filteredGames, setFilteredGames] = useState(gamesArray.filter((game) => {
+
+        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
+            return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
+        }
+
+    }));
+
+    const navbarBooking = true;
 
     //Filter
 
-    const filteredGames = gamesArray.filter((game) => {
 
-        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty ) {
-            return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
-            
+    function getGames(items, index) {
+        const newItems = [];
+        items.forEach(item => {
+            item.categories.forEach(category => {
+                if (category._id.includes(categoriesText[index])) {
+                    newItems.push(item);
+                }
+            });
+        });
+        if (categoriesText.length > index + 1) {
+            getGames(newItems, index + 1)
+        } else {
+            setFilteredGames(newItems)
         }
-        
-    })
+    }
 
+    //CATEGORIES CHECKED
+    function getCheck(value) {
+
+        let test = -1;
+        categoriesText.find((element) => {
+            if (element === value) {
+                test = categoriesText.indexOf(element)
+            }
+        })
+        if (test !== -1) {
+
+            categoriesText.splice(test, 1)
+        }
+        else {
+            const newCategories = [...categoriesText];
+            newCategories.push(value)
+            setCategoriesText(newCategories);
+           
+        }
+        console.log(categoriesText)
+    }
+
+    useEffect(
+        () => {
+            console.log(categoriesText)
+            if (categoriesText.length > 0) {
+                getGames(filteredGames, 0);
+            }
+        }, [categoriesText]
+    )
 
 
 
@@ -51,16 +100,18 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
             </Head>
 
-            <Header></Header>
+            <Navbar displayNavbar={navbarBooking}
+                booking={false}
+            ></Navbar>
             <section className="ludotheque">
-                <div className="container py-20 sm:py-10 flex flex-col items-center justify-center ">
+                <div className="container py-20 sm:py-10 flex flex-col items-center justify-center">
 
                     <h2>Nos Jeux</h2>
 
-                    <div className="py-10">
+                    <div className="py-5">
                         <div className="search rounded p-5">
                             <form action="" method="get" className="flex flex-col">
-                                <div className="form-group flex flex-col p-3">
+                                <div className="form-group flex flex-col">
                                     <label htmlFor="searchByName" className="font-bold">Rechercher :</label>
                                     <input
                                         placeholder="Avez-vous un jeu en tête ?"
@@ -71,15 +122,16 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                         onChange={(e) => setSearchInputText(e.target.value)}
                                     />
                                 </div>
-                                <div className="flex flex-col lg:flex-row p-3">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 py-2">
                                     <div className="form-group flex flex-col p-1">
                                         <label htmlFor="numberPlayer" className="font-bold">Nombre de Joueurs :</label>
                                         <input
                                             type="number"
                                             id="numberPlayer"
+                                            min="1" max="30"
                                             value={searchInputPlayer}
                                             onChange={(e) => setSearchInputPlayer(e.target.value)}
-                                            className="ml-6 p-2 w-12 rounded" />
+                                            className=" p-2 w-100 rounded" />
                                     </div>
                                     <div className="form-group flex flex-col p-1">
                                         <label htmlFor="timePlayable" className="font-bold">Temps :</label>
@@ -88,13 +140,14 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             id="timePlayable"
                                             value={searchInputTime}
                                             onChange={(e) => setSearchInputTime(e.target.value)}
-                                            className="p-2 ml-6 rounded">
+                                            className="p-2 rounded">
                                             <option value="(-15)">- 15min</option>
                                             <option value="(15 - 30)">15 - 30min</option>
                                             <option value="(30 - 60)">30 - 60min</option>
                                             <option value="(+60)">+ 60min</option>
                                         </select>
                                     </div>
+
                                     <div className="form-group flex flex-col p-1">
                                         <label htmlFor="difficulty" className="font-bold">Difficulté :</label>
                                         <select
@@ -102,68 +155,71 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             id="difficulty"
                                             value={searchInputDifficulty}
                                             onChange={(e) => setSearchInputDifficulty(e.target.value)}
-                                            className="p-2 ml-6 rounded">
-                                            <option value="0">----</option>
+                                            className="p-2  rounded">
                                             <option value="1">Facile</option>
                                             <option value="2">Intermédiaire</option>
-                                            <option value="3">Pro</option>
+                                            <option value="3">Difficile</option>
                                             <option value="4">Varié</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div className="form-group flex flex-col px-4 col-span-1 md:col-span-2 bg-red-500 rounded">
                                     <label htmlFor="categories" className="pt-4 font-bold">Catégories :</label>
-                                    <div className="w-full grid md:grid-cols-3 grid-flow-row gap-4 p-2" >
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Adult">Adulte</label>
-                                            <input 
-                                            type="checkbox" 
-                                            id="Adult" 
-                                            name="" 
-                                            onChange={(e) => setSearchAdult(e.target.checked)}
-                                            />
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 p-2" >
+                                        {/* <div className="w-full grid md:grid-cols-3 grid-flow-row gap-4 p-2" > */}
+                                        <div className="form-group-checkbox flex items-center justify-start">
+                                            <input type="checkbox" id="Adult" name="" value="60744fd321882cb44ef430b7" onClick={(e) => getCheck(e.target.value)} />
+                                            <label className="pl-2" htmlFor="Adult">Adulte</label>
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Ambiance">Ambiance</label>
-                                            <input type="checkbox" id="Ambiance" name="" />
+                                        <div className="form-group-checkbox flex items-center justify-start">
+                                            <input type="checkbox" id="Ambiance" name="" value="60744fd321882cb44ef430b4" onClick={(e) => getCheck(e.target.value)} />
+                                            <label className="pl-2" htmlFor="Ambiance">Ambiance</label>
                                         </div>
 
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Bluff">Bluff</label>
+                                        <div className="form-group-checkbox flex items-center justify-start">
                                             <input type="checkbox" id="Bluff" name="" />
+                                            <label className="pl-2" htmlFor="Bluff">Bluff</label>
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Cards">Cartes</label>
-                                            <input
-                                            type="checkbox" 
-                                            id="Cards" 
-                                            name="" 
-                                            onChange={(e) => setSearchCart(e.target.checked)}
+                                        <div className="form-group-checkbox flex items-center justify-start">
+                                            <input type="checkbox"
+                                                id="Cards"
+                                                name=""
+                                                onChange={(e) => setSearchCart(e.target.checked)}
                                             />
+                                            <label className="pl-2" htmlFor="Cards">Cartes</label>
+
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Coop">Coopération</label>
+                                        <div className="form-group-checkbox flex items-center justify-start">
                                             <input type="checkbox" id="Coop" name="" />
+                                            <label className="pl-2" htmlFor="Coop">Coopération</label>
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Draw">Dessin</label>
+                                        <div className="form-group-checkbox flex items-center justify-start">
                                             <input type="checkbox" id="Draw" name="" />
+                                            <label className="pl-2" htmlFor="Draw">Dessin</label>
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Dexterity">Dextérité</label>
+                                        <div className="form-group-checkbox flex items-center justify-start">
                                             <input type="checkbox" id="Dexterity" name="" />
+                                            <label className="pl-2" htmlFor="Dexterity">Dextérité</label>
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Child">Enfants</label>
+                                        <div className="form-group-checkbox flex items-center justify-start">
                                             <input type="checkbox" id="Child" name="" />
+                                            <label className="pl-2" htmlFor="Child">Enfants</label>
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Management">Gestion</label>
+                                        <div className="form-group-checkbox flex items-center justify-start">
                                             <input type="checkbox" id="Management" name="" />
+                                            <label className="pl-2" htmlFor="Management">Gestion</label>
                                         </div>
-                                        <div className="form-group-checkbox flex items-center justify-between">
-                                            <label htmlFor="Strategy">Stratégie</label>
+                                        <div className="form-group-checkbox flex items-center justify-start">
                                             <input type="checkbox" id="Strategy" name="" />
+                                            <label className="pl-2" htmlFor="Strategy">Stratégie</label>
+                                        </div>
+                                        <div className="form-group-checkbox flex items-center justify-start">
+                                            <input type="checkbox" id="Dice" name="" />
+                                            <label className="pl-2" htmlFor="Dice">Dés</label>
+                                        </div>
+                                        <div className="form-group-checkbox flex items-center justify-start">
+                                            <input type="checkbox" id="BoardGame" name="" />
+                                            <label className="pl-2" htmlFor="BoardGame">Plateau</label>
                                         </div>
                                     </div>
                                 </div>
@@ -209,9 +265,6 @@ const Ludotheque = ({ allGamesFromAPI }) => {
 
                 </div>
             </section>
-
-            <Booking></Booking>
-
             <Footer />
 
         </div>

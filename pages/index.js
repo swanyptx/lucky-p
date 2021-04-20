@@ -8,7 +8,7 @@ import BasicSection from '../components/BasicSection.js'
 import SocialNetwork from '../components/SocialNetwork.js'
 import Reviews from '../components/Reviews.js'
 import SliderMain from '../components/SliderMain.js'
-import Image from "next/image";
+// import Image from "next/image";
 
 
 const Home = (props) => {
@@ -63,7 +63,7 @@ const Home = (props) => {
             button={true}
             buttonContent="Voir la ludothèque"
             fade="up"
-            href="/jeux"
+            href="/games"
           />
           <div className="w-screen overflow-hidden">
             <Reviews data={props.res} />
@@ -117,6 +117,7 @@ const Home = (props) => {
       </div>
 
       { userAlreadyCame()}
+      
     </div >
   )
 }

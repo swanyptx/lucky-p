@@ -175,6 +175,8 @@
 
 .bg-booking {
     background-color: $mainYellow;
+    font-family: "Vollkorn";
+    
 
     .bg-div {
         // background-color: $mainRed;
@@ -294,7 +296,7 @@ footer {
     }
 }
 .jeux {
-    background-color: $mainBlack;
+    background-color: $mainGreen;
     color: white;
 
     h2 {
@@ -344,10 +346,20 @@ footer {
     }
 }
 
+.games {
+    background-color: $mainGreen;
+
+    .containerWithoutMargin {
+        max-width: 75%
+    }
+
+    a {
+        @include goldenButton;
+    }
+}
+
 .gameBlock {
     background-color: #ffffff;
-
-
 
     .gameBlockCategorie {
         background: $mainRed;
@@ -414,3 +426,5 @@ footer {
     max-width: 75%;
     border-radius: 2.5rem;
 }
+
+
