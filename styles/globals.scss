@@ -174,10 +174,18 @@
 }
 
 .bg-booking {
-    background-color: $mainYellow;
+    background-color: $mainGreen;
     font-family: "Vollkorn";
-    
+    color: $mainWhite;
 
+    input {
+        color: black;
+    }
+
+    textarea {
+        color: black;
+    }
+    
     .bg-div {
         // background-color: $mainRed;
         // max-width: 50%;
@@ -185,8 +193,15 @@
         border-radius: 10px;
     }
 
-    .test-btn {
-        // max-width: 90%;
+    .booking-list {
+        color: black;
+    }
+}
+
+.btn-submit {
+
+    input {
+        @include goldenButton;
     }
 }
 
@@ -428,3 +443,51 @@ footer {
 }
 
 
+// Contact 
+.error::placeholder {
+    color: #ff4d4d;
+  }
+
+#not-mail {
+    display: none;
+    top: 4px;
+    color: #ff4d4d;
+    right: 0;
+    transform-origin: 50% 50%;
+}
+
+@keyframes dongle {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    10% {
+      transform: translate(-10px, 0px);
+    }
+    20% {
+      transform: translate(10px, 0px);
+    }
+    30% {
+      transform: translate(-10px, 0px);
+    }
+    40% {
+      transform: translate(10px, 0px);
+    }
+    50% {
+      transform: translate(-10px, 0px);
+    }
+    60% {
+      transform: translate(10px, 0px);
+    }
+    70% {
+      transform: translate(-10px, 0px);
+    }
+    80% {
+      transform: translate(10px, 0px);
+    }
+    90% {
+      transform: translate(-10px, 0px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
