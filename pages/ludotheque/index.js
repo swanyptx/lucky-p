@@ -4,20 +4,14 @@ import Footer from '../../components/Footer.js'
 import Navbar from '../../components/Navbar.js'
 import Link from 'next/link'
 
-
-
 export const getStaticProps = async () => {
     // Call an external API endpoint to get posts
     const res = await fetch('http://localhost:5500/games');
     const data = await res.json()
-
     return {
         props: { allGamesFromAPI: data }
     }
 }
-
-
-
 
 const Ludotheque = ({ allGamesFromAPI }) => {
 
@@ -33,6 +27,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
 
     //Filter
 
+    // const filteredGames = gamesArray.filter((game) => {
     // setFilteredGames(gamesArray.filter((game) => {
 
     //     if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
@@ -42,8 +37,8 @@ const Ludotheque = ({ allGamesFromAPI }) => {
     // }))
 
     function getGames(items, index) {
-        console.log(items)
-        console.log(index)
+        // console.log(items)
+        // console.log(index)
         const newItems = [];
         items.forEach(item => {
             item.categories.forEach(category => {
@@ -52,13 +47,15 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                 }
             });
         });
-        console.log(newItems);
+        // console.log(newItems);
         if (categoriesText.length > index + 1) {
             getGames(newItems, index + 1)
         } else {
             setFilteredGames(newItems)
         }
+
     }
+    // }
 
     //CATEGORIES CHECKED
     function getCheck(value) {
@@ -80,7 +77,6 @@ const Ludotheque = ({ allGamesFromAPI }) => {
 
     return (
         <div>
-
             <Head>
                 <title>La Ludothèque</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -88,15 +84,12 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
             </Head>
-
             <Navbar displayNavbar={navbarBooking}
                 booking={false}
             ></Navbar>
             <section className="ludotheque">
                 <div className="container py-20 sm:py-10 flex flex-col items-center justify-center">
-
                     <h2>Nos Jeux</h2>
-
                     <div className="py-5">
                         <div className="search rounded p-5">
                             <form action="" method="get" className="flex flex-col">
@@ -136,7 +129,6 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             <option value="(+60)">+ 60min</option>
                                         </select>
                                     </div>
-
                                     <div className="form-group flex flex-col p-1">
                                         <label htmlFor="difficulty" className="font-bold">Difficulté :</label>
                                         <select
@@ -166,68 +158,58 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                         </div>
 
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Bluff" name="" />
+                                            <input type="checkbox" id="Bluff" name="" value="6074503521882cb44ef430bc" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Bluff">Bluff</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox"
-                                                id="Cards"
-                                                name=""
-                                                onChange={(e) => setSearchCart(e.target.checked)}
-                                            />
+                                            <input type="checkbox" id="Cards" name="" value="6074503521882cb44ef430b9" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Cards">Cartes</label>
-
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Coop" name="" />
+                                            <input type="checkbox" id="Coop" name="" value="6074503521882cb44ef430bb" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Coop">Coopération</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Draw" name="" />
+                                            <input type="checkbox" id="Draw" name="" value="6074503521882cb44ef430b8" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Draw">Dessin</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Dexterity" name="" />
+                                            <input type="checkbox" id="Dexterity" name="" value="60744fd321882cb44ef430b5" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Dexterity">Dextérité</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Child" name="" />
+                                            <input type="checkbox" id="Child" name="" value="60744fd321882cb44ef430b6" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Child">Enfants</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Management" name="" />
+                                            <input type="checkbox" id="Management" name="" value="6074503521882cb44ef430ba" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Management">Gestion</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Strategy" name="" />
+                                            <input type="checkbox" id="Strategy" name="" value="60744fd321882cb44ef430b3" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Strategy">Stratégie</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="Dice" name="" />
+                                            <input type="checkbox" id="Dice" name="" value="6078cc3549a7b0ba9e94063a" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="Dice">Dés</label>
                                         </div>
                                         <div className="form-group-checkbox flex items-center justify-start">
-                                            <input type="checkbox" id="BoardGame" name="" />
+                                            <input type="checkbox" id="BoardGame" name="" value="6078cc3549a7b0ba9e94063b" onClick={(e) => getCheck(e.target.value)} />
                                             <label className="pl-2" htmlFor="BoardGame">Plateau</label>
                                         </div>
                                     </div>
                                 </div>
-                                {/* <button className="submit rounded py-3 px-4 font-bold" type="submit">Rechercher</button> */}
                             </form>
                         </div>
                     </div>
-
                     <div className="flex flex-col items-center">
-
                         <h2>Résultats</h2>
                         <hr className="w-80" />
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
                             {filteredGames.map(game => {
-
                                 //Shorten preamble
                                 let maxLength = 140;
                                 let desc = game.preamble.substring(0, maxLength) + '...';
-
                                 //Categories Looping
                                 let arrayCategories = [];
                                 for (let index = 0; index < game.categories.length; index++) {
@@ -246,18 +228,14 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             <div className="flex flex-row justify-start ">{arrayCategories}</div>
                                         </div>
                                     </Link>
-
                                 )
                             })}
                         </div>
                     </div>
-
                 </div>
             </section>
             <Footer />
-
         </div>
     )
 }
-
 export default Ludotheque
