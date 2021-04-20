@@ -18,10 +18,6 @@ const NewGame = (props) => {
     function getCheck(value) {
         categoriesText.push(value)
         console.log(categoriesText)
-        const lol = {'ppp': value}
-        // categoriesText.push(lol)
-        // console.log(categoriesText)
-
     }
 
     const submit = async () => {
@@ -182,49 +178,49 @@ const NewGame = (props) => {
                             <label className="pl-2" htmlFor="Adult">Adulte</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Ambiance" name="" value="ABC" onClick={(e) => getCheck(e.target.value)} />
+                            <input type="checkbox" id="Ambiance" name="" value="60744fd321882cb44ef430b4" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Ambiance">Ambiance</label>
                         </div>
 
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Bluff" name="" />
+                            <input type="checkbox" id="Bluff" name="" value="6074503521882cb44ef430bc" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Bluff">Bluff</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Cards" name="" />
+                            <input type="checkbox" id="Cards" name="" value="6074503521882cb44ef430b9" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Cards">Cartes</label>
 
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Coop" name="" />
+                            <input type="checkbox" id="Coop" name="" value="6074503521882cb44ef430bb" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Coop">Coopération</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Draw" name="" />
+                            <input type="checkbox" id="Draw" name="" value="6074503521882cb44ef430b8" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Draw">Dessin</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Dexterity" name="" />
+                            <input type="checkbox" id="Dexterity" name="" value="60744fd321882cb44ef430b5" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Dexterity">Dextérité</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Child" name="" />
+                            <input type="checkbox" id="Child" name="" value="60744fd321882cb44ef430b6" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Child">Enfants</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Management" name="" />
+                            <input type="checkbox" id="Management" name="" value="6074503521882cb44ef430ba" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Management">Gestion</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Strategy" name="" />
+                            <input type="checkbox" id="Strategy" name="" value="60744fd321882cb44ef430b3" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Strategy">Stratégie</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="Dice" name="" />
+                            <input type="checkbox" id="Dice" name="" value="6078cc3549a7b0ba9e94063a" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="Dice">Dés</label>
                         </div>
                         <div className="form-group-checkbox flex items-center justify-start">
-                            <input type="checkbox" id="BoardGame" name="" />
+                            <input type="checkbox" id="BoardGame" name="" value="6078cc3549a7b0ba9e94063b" onClick={(e) => getCheck(e.target.value)} />
                             <label className="pl-2" htmlFor="BoardGame">Plateau</label>
                         </div>
                     </div>
