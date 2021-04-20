@@ -442,8 +442,11 @@ footer {
 .cardMenu {
     color: $mainWhite;
     hr {
-        width: 30%;
+        width: 30%;     
         margin: auto;
         padding: 1rem 0;
     }
+}
+#searchGame{
+    color: $mainBlack;
 }

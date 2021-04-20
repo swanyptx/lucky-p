@@ -5,7 +5,20 @@ import NewGame from '../components/NewGame'
 import UpdateGame from "../components/updateGame";
 import BookingTable from "../components/BookingTable";
 
-const Admin = () => {
+export const getStaticProps = async () => {
+    // Call an external API endpoint to get posts
+    const res = await fetch('http://localhost:5500/games');
+    const data = await res.json()
+
+    return {
+        props: { allGamesFromAPI: data }
+    }
+}
+
+const Admin = ({allGamesFromAPI}) => {
+
+
+    const [GamesArray, setGamesArray] = useState(allGamesFromAPI)
     const [isHidden, setIsHidden] = useState(true);
     const [component, setComponent] = useState("add")
 
@@ -26,7 +39,9 @@ const Admin = () => {
 
         if (component == "modify") {
             return (
-                <UpdateGame />
+                <UpdateGame 
+                games={GamesArray}
+                />
             )
         } else {
             return (
