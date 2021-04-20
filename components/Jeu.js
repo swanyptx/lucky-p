@@ -23,8 +23,9 @@ export default function Reviews({ data }) {
 
     })
 
-
     return (
+
+
 
         <div className="games">
             <h2 className="text-center p-5">L'avis de nos clients</h2>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Head from 'next/head'
 import Calendar from '../components/Calendar'
 import Booking from '../components/Booking.js'
@@ -62,16 +62,15 @@ const Home = (props) => {
             sectionName="ludotheque"
             button={true}
             buttonContent="Voir la ludothèque"
-            fade="up"
+            fade="top"
             href="/jeux"
           />
-          <div className="w-screen overflow-hidden">
             <Reviews data={props.res} />
-          </div>
+         
           <Calendar />
           <Booking />
           <Footer />
-        </div>
+          </div>
       )
     }
     else {

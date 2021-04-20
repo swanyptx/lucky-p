@@ -63,10 +63,10 @@ const Brasserie = ({ allMenusFromAPI }) => {
                 <div className="container sm:py-10 flex flex-col items-center ">
                     <div className="w-full">
 
-                        <div className="text-white hover:text-orange sm:hidden" href="#" onClick={isHidden ? notHidden : hidden}>
+                        <div className="text-white hover:text-orange block md:hidden" href="#" onClick={isHidden ? notHidden : hidden}>
                             <h2 className="titleMobile text-center p-4 rounded">Nos Cartes</h2>
                         </div>
-                        <nav className={isHidden ? " hidden sm:block" : ""}>
+                        <nav className={isHidden ? "hidden sm:block" : ""}>
                             <ul className="menuUl grid grid-cols-1 md:grid-cols-4 gap-4 justify-around p-10">
                                 <li className="menuLi m-2 p-4 rounded flex justify-center items-center" onClick={() => { setCarte("Burger"); setBonus(""); setBonusTwo(""); setBonusThree(""); hidden() }}>Burgers</li>
                                 <li className="menuLi m-2 p-4 rounded flex justify-center items-center" onClick={() => { setCarte("Dessert"); setBonus(""); setBonusTwo(""); setBonusThree(""); hidden() }}>Desserts</li>
