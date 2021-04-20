@@ -173,6 +173,23 @@
     }
 }
 
+.bg-booking {
+    background-color: $mainYellow;
+    font-family: "Vollkorn";
+    
+
+    .bg-div {
+        // background-color: $mainRed;
+        // max-width: 50%;
+        min-width: 50%;
+        border-radius: 10px;
+    }
+
+    .test-btn {
+        // max-width: 90%;
+    }
+}
+
 //SOCIAL NETWORK
 
 .socialNetwork {
@@ -279,7 +296,7 @@ footer {
     }
 }
 .jeux {
-    background-color: $mainBlack;
+    background-color: $mainGreen;
     color: white;
 
     h2 {
@@ -310,7 +327,6 @@ footer {
         font-size: 2rem;
     }
     .search {
-        min-width: fit-content;
         min-height: 20rem;
         background-color: $mainRed;
         color: $mainBlack;
@@ -330,14 +346,20 @@ footer {
     }
 }
 
+.games {
+    background-color: $mainGreen;
+
+    .containerWithoutMargin {
+        max-width: 75%
+    }
+
+    a {
+        @include goldenButton;
+    }
+}
+
 .gameBlock {
     background-color: #ffffff;
-
-    .fakeBlock {
-        height: 145px;
-        width: 145px;
-        background-color: grey;
-    }
 
     .gameBlockCategorie {
         background: $mainRed;
@@ -450,3 +472,4 @@ footer {
 #searchGame{
     color: $mainBlack;
 }
+
