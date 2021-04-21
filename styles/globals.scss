@@ -317,8 +317,6 @@ footer {
     height: fit-content;
     h2 {
         color: white;
-        font-family: "Vollkorn", sans-serif;
-        font-size: 2rem;
     }
 }
 .jeux {
@@ -356,6 +354,7 @@ footer {
         background-color: $mainRed;
         color: $mainBlack;
         font-family: "Poppins", sans-serif;
+        box-shadow: 3px 3px 3px 3px darken(rgba(0, 0, 0, 0.2), 100%);
         &-hastags {
             min-height: 10rem;
         }
@@ -384,10 +383,10 @@ footer {
 }
 
 .gameBlock {
-    background-color: #ffffff;
+    @include gameCard;
 
     .gameBlockCategorie {
-        background: $mainRed;
+        @include gameCategorie;
     }
 }
 

@@ -100,7 +100,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
             ></Navbar>
             <section className="ludotheque">
                 <div className="container py-20 sm:py-10 flex flex-col items-center justify-center">
-                    <h2>Nos Jeux</h2>
+                    <h2 className="">Nos Cartes</h2>
                     <div className="py-5">
                         <div className="search rounded p-5">
                             <form action="" method="get" className="flex flex-col">
@@ -231,14 +231,14 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                 let arrayCategories = [];
                                 for (let index = 0; index < game.categories.length; index++) {
                                     arrayCategories.push(
-                                        <div className="gameBlockCategorie text-white rounded-sm p-1 m-1">{game.categories[index].categorieName}</div>
+                                        <div className="gameBlockCategorie">{game.categories[index].categorieName}</div>
                                     )
                                 }
 
                                 return (
 
                                     <Link href={'/ludotheque/' + game._id} key={game._id}>
-                                        <div className="gameBlock flex flex-col rounded-2xl m-3 p-5 cursor-pointer transform hover:scale-110">
+                                        <div className="gameBlock">
                                             <div className="fakeBlock self-center"> </div>
                                             <h4 className="font-semibold text-center">{game.title}</h4>
                                             <h4 className="desc">{desc}</h4>
