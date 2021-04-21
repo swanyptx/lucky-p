@@ -21,7 +21,7 @@ const Home = (props) => {
       return (
         <div>
           <SocialNetwork />
-          <Calendar />
+          {/* <Calendar /> */}
           <Booking />
           <Footer />
         </div>
@@ -67,7 +67,7 @@ const Home = (props) => {
           />
           <Reviews data={props.res} />
 
-          <Calendar />
+          {/* <Calendar /> */}
           <Booking />
           <Footer />
         </div>

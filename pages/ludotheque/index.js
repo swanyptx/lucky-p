@@ -25,17 +25,6 @@ const Ludotheque = ({ allGamesFromAPI }) => {
 
     const navbarBooking = true;
 
-    //Filter
-
-    // const filteredGames = gamesArray.filter((game) => {
-    // setFilteredGames(gamesArray.filter((game) => {
-
-    //     if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
-    //         return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
-    //     }
-
-    // }))
-
     function getGames(items, index) {
         // console.log(items)
         // console.log(index)
@@ -208,7 +197,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
                             {filteredGames.filter((game) => {
 
-                                if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
+                                if (game.title == searchInputText || game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
                                     return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
                                 }
 

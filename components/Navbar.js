@@ -44,11 +44,11 @@ const Navbar = ({ displayNavbar, alreadyCame, test = false, booking = true, cont
                             La Ludothèque
                         </a>
                     </li>
-                    <li className="md:ml-4 ">
+                    {/* <li className="md:ml-4 ">
                         <a className="block ml-3 py-2 text-white md:p-0" href="#events">
                             Nos Évènements
                         </a>
-                    </li>
+                    </li> */}
                     <li className={contact ? "md:ml-4" : "displayNone"}>
                         <a className="block ml-3 py-2 text-white md:p-0" href="/contact">
                             Contact

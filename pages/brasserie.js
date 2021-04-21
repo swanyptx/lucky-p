@@ -59,7 +59,7 @@ const Brasserie = ({ allMenusFromAPI }) => {
             </Head>
             <Navbar displayNavbar={true}></Navbar>
             <section className="carte py-28">
-                <h2 className="hidden md:block py-20 text-center">Nos Cartes</h2>
+                <h2 className="hidden md:block text-center">Nos Cartes</h2>
                 <div className="container sm:py-10 flex flex-col items-center ">
                     <div className="w-full">
 
