@@ -14,13 +14,13 @@ const SocialNetwork = () => {
             <div data-aos="fade-up" className="container">
                 <h2 className="text-center text-white p-10">Les Nouvelles de La Luck</h2>
 
-                <div className="md:flex justify-around items-center  lg:py-8">
-                    <div className="p-2">
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLaLuckLille&tabs=timeline&width=320&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="400" height="400" styles="border:none;overflow:hidden" scrolling="no" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                <div className="md:flex justify-around items-start  lg:py-8">
+                    <div className="p-2 flex justify-center transform hover:scale-110">
+                        <iframe className="socialFacebook" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLaLuckLille&tabs=timeline&width=320&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" styles="border:none;overflow:hidden" scrolling="no" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
 
-                    <div className="p-2">
-                        <iframe src="http://instagram.com/p/CMJ5FoyA_Ne/embed/captioned" width="400" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    <div className="p-2 flex justify-center transform hover:scale-110">
+                        <iframe className="socialInsta" src="http://instagram.com/p/CMJ5FoyA_Ne/embed/captioned" frameBorder="0" scrolling="no" allowtransparency="true"></iframe>
                     </div>
                 </div>
             </div>
