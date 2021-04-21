@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Navbar = ({ displayNavbar, alreadyCame, test = false, booking = true }) => {
+const Navbar = ({ displayNavbar, alreadyCame, test = false, booking = true, contact = true }) => {
 
     const [isHidden, setIsHidden] = useState(true);
 
@@ -39,14 +39,19 @@ const Navbar = ({ displayNavbar, alreadyCame, test = false, booking = true }) =>
                             La Brasserie
                         </a>
                     </li>
-                    <li className="md:ml-4">
+                    <li className="md:ml-4 transition duration-150 ease-in-out">
                         <a className="block ml-3 py-2 text-white md:p-0" href={alreadyCame == "NewCustomer" ? "#ludotheque" : "/games"}>
                             La Ludothèque
                         </a>
                     </li>
-                    <li className="md:ml-4">
+                    <li className="md:ml-4 ">
                         <a className="block ml-3 py-2 text-white md:p-0" href="#events">
                             Nos Évènements
+                        </a>
+                    </li>
+                    <li className={contact ? "md:ml-4" : "displayNone"}>
+                        <a className="block ml-3 py-2 text-white md:p-0" href="/contact">
+                            Contact
                         </a>
                     </li>
                     <li className={booking ? "md:ml-4" : "displayNone"}>

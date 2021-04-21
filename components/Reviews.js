@@ -8,7 +8,7 @@ export default function Reviews({ data }) {
         dots: true,
         speed: 600,
         fade: 500,
-
+        autoplay: true
     };
 
     const reviews = data.map((review) => {

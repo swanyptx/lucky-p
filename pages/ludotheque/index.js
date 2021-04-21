@@ -142,7 +142,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             id="timePlayable"
                                             value={searchInputTime}
                                             onChange={(e) => setSearchInputTime(e.target.value)}
-                                            className="p-2 rounded">
+                                            className="p-2 ml-6 rounded">
                                             <option value="(-15)">- 15min</option>
                                             <option value="(15 - 30)">15 - 30min</option>
                                             <option value="(30 - 60)">30 - 60min</option>
@@ -226,7 +226,13 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                         <h2>Résultats</h2>
                         <hr className="w-80" />
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
-                            {filteredGames.map(game => {
+                            {filteredGames.filter((game) => {
+
+                                if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
+                                    return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
+                                }
+
+                            }).map(game => {
                                 //Shorten preamble
                                 let maxLength = 140;
                                 let desc = game.preamble.substring(0, maxLength) + '...';
