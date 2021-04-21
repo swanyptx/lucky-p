@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Head from 'next/head'
 import Calendar from '../components/Calendar'
 import Booking from '../components/Booking.js'
@@ -65,9 +65,8 @@ const Home = (props) => {
             fade="up"
             href="/games"
           />
-          <div className="w-screen overflow-hidden">
-            <Reviews data={props.res} />
-          </div>
+          <Reviews data={props.res} />
+
           <Calendar />
           <Booking />
           <Footer />
@@ -117,7 +116,7 @@ const Home = (props) => {
       </div>
 
       { userAlreadyCame()}
-      
+
     </div >
   )
 }

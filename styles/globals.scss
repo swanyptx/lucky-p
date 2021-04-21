@@ -185,7 +185,7 @@
     textarea {
         color: black;
     }
-    
+
     .bg-div {
         // background-color: $mainRed;
         // max-width: 50%;
@@ -199,7 +199,6 @@
 }
 
 .btn-submit {
-
     input {
         @include goldenButton;
     }
@@ -365,7 +364,7 @@ footer {
     background-color: $mainGreen;
 
     .containerWithoutMargin {
-        max-width: 75%
+        max-width: 75%;
     }
 
     a {
@@ -406,7 +405,6 @@ footer {
     }
     .form-group-checkbox {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         font-size: 1.2rem;
     }
@@ -442,11 +440,56 @@ footer {
     border-radius: 2.5rem;
 }
 
+// Brasserie
+.carte {
+    min-height: 90vh;
+    width: 100%;
+    .menu-text {
+        margin: auto;
+        &-price {
+            font-size: 2rem;
+        }
+    }
+    .menuLi {
+        color: $mainWhite;
+        cursor: pointer;
+        background-color: $mainYellow;
+        box-shadow: 3px 3px 3px 3px #012e2ae5;
+        text-align: center;
+        &:hover {
+            background-color: darken($mainYellow, 10%);
+        }
+    }
+    .titleCardMenu {
+        font-weight: bold;
+        color: $mainWhite;
+    }
+    .menuUl {
+        min-width: inherit;
+    }
+    .titleMobile {
+        background-color: $mainYellow;
+        &:hover {
+            background-color: darken($mainYellow, 10%);
+        }
+    }
+}
+.cardMenu {
+    color: $mainWhite;
+    hr {
+        width: 30%;
+        margin: auto;
+        padding: 1rem 0;
+    }
+}
+#searchGame {
+    color: $mainBlack;
+}
 
-// Contact 
+// Contact
 .error::placeholder {
     color: #ff4d4d;
-  }
+}
 
 #not-mail {
     display: none;
@@ -458,36 +501,36 @@ footer {
 
 @keyframes dongle {
     0% {
-      transform: translate(0px, 0px);
+        transform: translate(0px, 0px);
     }
     10% {
-      transform: translate(-10px, 0px);
+        transform: translate(-10px, 0px);
     }
     20% {
-      transform: translate(10px, 0px);
+        transform: translate(10px, 0px);
     }
     30% {
-      transform: translate(-10px, 0px);
+        transform: translate(-10px, 0px);
     }
     40% {
-      transform: translate(10px, 0px);
+        transform: translate(10px, 0px);
     }
     50% {
-      transform: translate(-10px, 0px);
+        transform: translate(-10px, 0px);
     }
     60% {
-      transform: translate(10px, 0px);
+        transform: translate(10px, 0px);
     }
     70% {
-      transform: translate(-10px, 0px);
+        transform: translate(-10px, 0px);
     }
     80% {
-      transform: translate(10px, 0px);
+        transform: translate(10px, 0px);
     }
     90% {
-      transform: translate(-10px, 0px);
+        transform: translate(-10px, 0px);
     }
     100% {
-      transform: translate(0px, 0px);
+        transform: translate(0px, 0px);
     }
-  }
+}
