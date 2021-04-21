@@ -8,7 +8,7 @@ const UpdateGame = ({ games }) => {
     const [gamesArray, setGamesArray] = useState(games)
     const [searchInputText, setSearchInputText] = useState('')
     const [modify, setModify] = useState("")
-    const [test, setTest] = useState(false)
+    const [Test, setTest] = useState(false)
 
     // Hook pour l'update
     const [titleText, setTitleText] = useState('');
@@ -23,15 +23,38 @@ const UpdateGame = ({ games }) => {
     const [minAgeText, setMinAgeText] = useState(6);
     const [categoriesText, setCategoriesText] = useState([]);
 
-
+    let categorieIds = []
     let filteredGames = [];
 
     function getCheck(value) {
-        categoriesText.push(value)
+
+        let test = -1;
+        categoriesText.find((element) => {
+
+            if (element === value) {
+                test = categoriesText.indexOf(element)
+            }
+        })
+
+        const newCategories = [...categoriesText];
+
+        if (test !== -1) {
+
+            newCategories.splice(test, 1)
+            setCategoriesText(newCategories);
+
+        }
+        else {
+
+            newCategories.push(value)
+            setCategoriesText(newCategories);
+
+        }
+
         console.log(categoriesText)
     }
 
-    if (test) {
+    if (Test) {
         filteredGames = gamesArray.filter((game) => {
             return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
         }
@@ -48,7 +71,7 @@ const UpdateGame = ({ games }) => {
     const updateGameSelected = async (id) => {
 
         const gameSchema = {
-            
+
             title: titleText,
             preamble: preambleText,
             description: descriptionText,
@@ -72,18 +95,38 @@ const UpdateGame = ({ games }) => {
 
         }).catch(error => console.log(error))
             .then(res => res.json())
-    
+
     }
 
 
-    function modifyGame (game) {
+    function modifyGame(game) {
 
-            setModify(game)
+        setModify(game)
 
     }
 
     const gameModified = () => {
         if (modify !== "") {
+            let arrayCategorieGame = []
+
+            modify.categories.map((categorie) => {
+
+                arrayCategorieGame.push(categorie.categorieName)
+                return arrayCategorieGame
+            })
+
+            const testons = () => {
+                let wesh = modify.categories.map((categorie) => {
+
+                    categorieIds.push(categorie._id)
+                    return (
+                        categorieIds
+                    )
+                })
+                setCategoriesText(wesh)
+            }
+
+            testons
 
             return (
                 <form action="" className="formAdd p-10 rounded-3xl my-20 grid md:grid-cols-2 grid-cols-1 ">
@@ -94,7 +137,7 @@ const UpdateGame = ({ games }) => {
                     </div>
                     <div className="form-group flex flex-col p-4">
                         <label htmlFor="gamePreamble">Préambule</label>
-                        <textarea type="text" onChange={(e) => setPreambleText(e.target.value)}  id="gamePreamble" defaultValue={modify.preamble} placeholder="Insérez un texte accrocheur pour le jeu" className="inputAdd p-1 rounded mt-2" />
+                        <textarea type="text" onChange={(e) => setPreambleText(e.target.value)} id="gamePreamble" defaultValue={modify.preamble} placeholder="Insérez un texte accrocheur pour le jeu" className="inputAdd p-1 rounded mt-2" />
                     </div>
                     <div className="form-group flex flex-col p-4">
                         <label htmlFor="gameDescription">Description</label>
@@ -128,10 +171,10 @@ const UpdateGame = ({ games }) => {
                     <div className="form-group flex flex-col p-4">
                         <label htmlFor="gameTime">Temps de Jeu</label>
                         <select name="" id="gameTime" onChange={(e) => setGameTimesText(e.target.value)} className="inputAdd p-1 rounded mt-2">
-                             <option value="" selected={modify.gameTimes == "(0 - 15)" ? true : false}>Moins de 15 minutes</option>
-                            <option value="" selected={modify.gameTimes == "(15 - 30)" ? true : false}>15 à 30 minutes</option>
-                            <option value="" selected={modify.gameTimes == "(30 - 60)" ? true : false}>30 à 60 minutes</option>
-                            <option value="" selected={modify.gameTimes == "(15 - 30)" ? true : false}>60 et plus</option>
+                            <option value="(-15)" selected={modify.gameTimes == "(-15)" ? true : false}>Moins de 15 minutes</option>
+                            <option value="(15 - 30)" selected={modify.gameTimes == "(15 - 30)" ? true : false}>15 à 30 minutes</option>
+                            <option value="(30 - 60)" selected={modify.gameTimes == "(30 - 60)" ? true : false}>30 à 60 minutes</option>
+                            <option value="(60+)" selected={modify.gameTimes == "(60+)" ? true : false}>Plus de 60 minutes</option>
                         </select>
                     </div>
                     <div className="form-group flex flex-col p-4 col-span-1 md:col-span-2 py-6">
@@ -139,52 +182,52 @@ const UpdateGame = ({ games }) => {
                         <div className="w-full grid md:grid-cols-3 grid-flow-row gap-4 text-center" >
                             <div className="form-group-checkbox">
                                 <label htmlFor="Adult">Adulte</label>
-                                <input type="checkbox" id="Adult" name="" value="60744fd321882cb44ef430b7" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Adult" name="" value="60744fd321882cb44ef430b7" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Adulte") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
-                            <input type="checkbox" id="Ambiance" name="" value="60744fd321882cb44ef430b4" onClick={(e) => getCheck(e.target.value)} />
-                                <input type="checkbox" id="Ambiance" name="" />
+                                <label htmlFor="Ambiance">Ambiance</label>
+                                <input type="checkbox" id="Ambiance" name="" value="60744fd321882cb44ef430b4" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Ambiance") ? true : false} />
                             </div>
 
                             <div className="form-group-checkbox">
-                            <input type="checkbox" id="Bluff" name="" value="6074503521882cb44ef430bc" onClick={(e) => getCheck(e.target.value)} />
-                                <input type="checkbox" id="Bluff" name="" />
+                                <label htmlFor="Bluff">Bluff</label>
+                                <input type="checkbox" id="Bluff" name="" value="6074503521882cb44ef430bc" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Bluff") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Cards">Cartes</label>
-                                <input type="checkbox" id="Cards" name="" value="6074503521882cb44ef430b9" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Cards" name="" value="6074503521882cb44ef430b9" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Cartes") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Coop">Coopération</label>
-                                <input type="checkbox" id="Coop" name="" value="6074503521882cb44ef430bb" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Coop" name="" value="6074503521882cb44ef430bb" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Coopération") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Draw">Dessin</label>
-                                <input type="checkbox" id="Draw" name="" value="6074503521882cb44ef430b8" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Draw" name="" value="6074503521882cb44ef430b8" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Dessin") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Dexterity">Dextérité</label>
-                                <input type="checkbox" id="Dexterity" name="" value="60744fd321882cb44ef430b5" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Dexterity" name="" value="60744fd321882cb44ef430b5" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Dextérité") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Child">Enfants</label>
-                                <input type="checkbox" id="Child" name="" value="60744fd321882cb44ef430b6" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Child" name="" value="60744fd321882cb44ef430b6" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Gestion") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Management">Gestion</label>
-                                <input type="checkbox" id="Management" name="" value="6074503521882cb44ef430ba" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Management" name="" value="6074503521882cb44ef430ba" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Gestion") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Strategy">Stratégie</label>
-                                <input type="checkbox" id="Strategy" name="" value="60744fd321882cb44ef430b3" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Strategy" name="" value="60744fd321882cb44ef430b3" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Stratégie") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Strategy">Dés</label>
-                                <input type="checkbox" id="Dice" name="" value="6078cc3549a7b0ba9e94063a" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="Dice" name="" value="6078cc3549a7b0ba9e94063a" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Dés") ? true : false} />
                             </div>
                             <div className="form-group-checkbox">
                                 <label htmlFor="Strategy">Plateau</label>
-                                <input type="checkbox" id="BoardGame" name="" value="6078cc3549a7b0ba9e94063b" onClick={(e) => getCheck(e.target.value)} />
+                                <input type="checkbox" id="BoardGame" name="" value="6078cc3549a7b0ba9e94063b" onClick={(e) => getCheck(e.target.value)} defaultChecked={arrayCategorieGame.find(element => element == "Plateau") ? true : false} />
                             </div>
                         </div>
                     </div>
@@ -193,7 +236,7 @@ const UpdateGame = ({ games }) => {
             )
         }
         else {
-            return(
+            return (
                 <p>Sélectionner un Jeu</p>
             )
         }
@@ -225,9 +268,9 @@ const UpdateGame = ({ games }) => {
                         <div className="gameBlock grid rounded-2xl p-5 m-5">
                             <h4 className="font-semibold text-center">{game.title}</h4>
                             {/* <Link href={`admin/games/${game._id}`}> */}
-                            <button  className="" onClick={() => modifyGame(game)}>Modifier</button>
+                            <button className="" onClick={() => modifyGame(game)}>Modifier</button>
                             {/* </Link> */}
-                            <button onClick={() => deleteGame(game._id)}>Supprimer</button>
+                            <a onClick={() => deleteGame(game._id)} href="/admin">Supprimer</a>
                         </div>
 
                     )
