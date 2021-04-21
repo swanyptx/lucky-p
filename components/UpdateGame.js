@@ -39,7 +39,7 @@ const UpdateGame = ({ games }) => {
     }
 
     async function deleteGame(id) {
-        await fetch(`http://localhost:5500/games/${id}`, {
+        await fetch(`https://luckyp-api.herokuapp.com/games/${id}`, {
             method: 'DELETE',
         }).catch(error => console.log(error))
             .then(res => res.json())
@@ -62,7 +62,7 @@ const UpdateGame = ({ games }) => {
             categories: categoriesText,
         }
 
-        await fetch(`http://localhost:5500/games/${id}`, {
+        await fetch(`https://luckyp-api.herokuapp.com/games/${id}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',

@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar.js'
 
 
 export const getStaticPaths = async () => {
-    const res = await fetch('http://localhost:5500/games');
+    const res = await fetch('https://luckyp-api.herokuapp.com/games');
     const data = await res.json()
 
     const paths = data.map(game => {
@@ -22,7 +22,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    const res = await fetch('http://localhost:5500/games/' + id);
+    const res = await fetch('https://luckyp-api.herokuapp.com/games/' + id);
     const data = await res.json();
     console.log(data)
     return {

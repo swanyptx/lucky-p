@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const getStaticProps = async () => {
     // Call an external API endpoint to get posts
-    const res = await fetch('http://localhost:5500/games');
+    const res = await fetch('https://luckyp-api.herokuapp.com/games');
     const data = await res.json()
     return {
         props: { allGamesFromAPI: data }
