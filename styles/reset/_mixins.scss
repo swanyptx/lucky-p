@@ -1,3 +1,5 @@
+//MIXIN INSIDE NEW CUSTOMER PAGE
+
 @mixin section($background) {
     background-color: $background;
     min-height: 90vh;
@@ -41,13 +43,50 @@
     }
 }
 
-@mixin goldenButton($font-size : 1rem) {
-    background-color: $mainYellow;
+//MIXIN INSIDE ALREADY CAME PAGE
+
+@mixin socialNetwork($socialNetworkHeight: 400px, $socialNetworkWidth: 320px) {
+    height: $socialNetworkHeight;
+    width: $socialNetworkWidth;
+    box-shadow: 3px 3px 3px 3px darken(rgba(0, 0, 0, 0.2), 100%);
+}
+
+//MIXIN INSIDE ALREADY CAME PAGE, NEW CUSTOMER PAGE
+
+@mixin goldenButton($background-color: $mainYellow, $font-size: 1rem) {
+    background-color: $background-color;
     color: $mainWhite;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     font-size: $font-size;
+    box-shadow: 3px 3px 3px 3px darken(rgba(0, 0, 0, 0.2), 100%);
     &:hover {
         background-color: darken($mainYellow, 10%);
     }
+}
+
+//MIXIN INSIDE LUDOTHEQUE PAGE
+
+@mixin gameCard() {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    margin: 0.75rem;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 3px 3px darken(rgba(0, 0, 0, 0.2), 100%);
+    background-color: white;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+@mixin gameCategorie() {
+    background: $mainYellow;
+    color: white;
+    border-radius: 0.125rem;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    box-shadow: 1px 1px 1px 1px darken(rgba(0, 0, 0, 0.2), 100%);
 }

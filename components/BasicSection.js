@@ -35,7 +35,7 @@ const BasicSection = ({ title, text, image, reverse, sectionName, button, button
                 </div>
                 <div className={`${section}-infos flex flex-1 justify-center flex-wrap`}>
                     <div className={`${section}-text p-2 lg:p-8 text-center md:text-justify mx-2 xl:mx-20`}>
-                        <h3 className="mt-6 py-4 pr-2 lg:pr-8">{title}</h3>
+                        <h3 className="text-center lg:text-left mt-6 py-4 pr-2 lg:pr-8">{title}</h3>
                         <p className="py-4 pr-2 lg:pr-8">{text}</p>
                     </div>
                     {buttonLink()}

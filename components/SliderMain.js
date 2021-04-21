@@ -9,42 +9,44 @@ export default function SliderMain() {
         autoplay: true,
         speed: 4000,
         autoplaySpeed: 2000,
-      };
+    };
 
-    return(
-        <div className="container-slider w-full h-full overflow-hidden">
-            <Slider {...settings}>
+    return (
+        <div className="container-slider ">
+            <div className="w-screen overflow-hidden">
+                <Slider {...settings}>
                     <div className="slide w-1/2">
-                    {/* <Image 
+                        {/* <Image 
                         src="/assets/img/bg/background4.jpg"
                         alt=""
                         layout="responsive"
                         width={700}
                         height={475}
                         /> */}
-                        <img className="w-full" src="/assets/img/bg/background4.jpg" alt=""/>
+                        <img className="w-full" src="/assets/img/bg/background4.jpg" alt="" />
                     </div>
                     <div className="slide w-1/2">
-                    {/* <Image 
+                        {/* <Image 
                         src="/assets/img/bg/background5.jpg"
                         alt=""
                         layout="responsive"
                         width={700}
                         height={475}
                         /> */}
-                        <img className="w-full" src="/assets/img/bg/background5.jpg" alt=""/>
+                        <img className="w-full" src="/assets/img/bg/background5.jpg" alt="" />
                     </div>
                     <div className="slide w-1/2">
-                    {/* <Image 
+                        {/* <Image 
                         src="/assets/img/bg/background6.jpg"
                         alt=""
                         layout="responsive"
                         width={700}
                         height={475}
                         /> */}
-                        <img className="w-full" src="/assets/img/bg/background6.jpg" alt=""/>
+                        <img className="w-full" src="/assets/img/bg/background6.jpg" alt="" />
                     </div>
-            </Slider>
+                </Slider>
+            </div>
         </div>
     )
 }
