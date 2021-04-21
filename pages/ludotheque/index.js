@@ -98,9 +98,10 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                 displayNavbar={navbarBooking}
                 ludotheque={false}
             ></Navbar>
-            <section className="ludotheque">
-                <div className="container py-20 sm:py-10 flex flex-col items-center justify-center">
-                    <h2>Nos Jeux</h2>
+            <section className="ludotheque pt-28">
+                <div className="pb-20 sm:pb-10 flex flex-col items-center justify-center">
+                    <h2 className="">Notre Ludothèque</h2>
+                    <h4 className="text-white">Filtrer nos jeux selon vos critères</h4>
                     <div className="py-5">
                         <div className="search rounded p-5">
                             <form action="" method="get" className="flex flex-col">
@@ -133,7 +134,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             id="timePlayable"
                                             value={searchInputTime}
                                             onChange={(e) => setSearchInputTime(e.target.value)}
-                                            className="p-2 ml-6 rounded">
+                                            className="p-2 w-100 rounded">
                                             <option value="(-15)">- 15min</option>
                                             <option value="(15 - 30)">15 - 30min</option>
                                             <option value="(30 - 60)">30 - 60min</option>
@@ -147,7 +148,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                             id="difficulty"
                                             value={searchInputDifficulty}
                                             onChange={(e) => setSearchInputDifficulty(e.target.value)}
-                                            className="p-2  rounded">
+                                            className="p-2 w-100 rounded">
                                             <option value="1">Facile</option>
                                             <option value="2">Intermédiaire</option>
                                             <option value="3">Difficile</option>
@@ -213,10 +214,9 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                             </form>
                         </div>
                     </div>
-                    <div className="flex flex-col items-center">
-                        <h2>Résultats</h2>
-                        <hr className="w-80" />
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
+                    <div className=" flex flex-col items-center pt-5">
+                        <h3 className="">~ Résultats du filtrage ~</h3>
+                        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
                             {filteredGames.filter((game) => {
 
                                 if (game.title == searchInputText || game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
@@ -231,18 +231,18 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                 let arrayCategories = [];
                                 for (let index = 0; index < game.categories.length; index++) {
                                     arrayCategories.push(
-                                        <div className="gameBlockCategorie text-white rounded-sm p-1 m-1">{game.categories[index].categorieName}</div>
+                                        <div className="gameBlockCategorie">{game.categories[index].categorieName}</div>
                                     )
                                 }
 
                                 return (
 
-                                    <Link href={'/ludotheque/' + game._id} key={game._id}>
-                                        <div className="gameBlock flex flex-col rounded-2xl m-3 p-5 cursor-pointer transform hover:scale-110">
+                                    <Link href={'/ludotheque/' + game._id} key={game.title}>
+                                        <div className="gameBlock">
                                             <div className="fakeBlock self-center"> </div>
                                             <h4 className="font-semibold text-center">{game.title}</h4>
                                             <h4 className="desc">{desc}</h4>
-                                            <div className="flex flex-row justify-start ">{arrayCategories}</div>
+                                            <div className="flex flex-row justify-start flex-wrap ">{arrayCategories}</div>
                                         </div>
                                     </Link>
                                 )

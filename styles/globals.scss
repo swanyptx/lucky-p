@@ -187,8 +187,6 @@
     }
 
     .bg-div {
-        // background-color: $mainRed;
-        // max-width: 50%;
         min-width: 50%;
         border-radius: 10px;
     }
@@ -196,10 +194,8 @@
     .booking-list {
         color: black;
     }
-}
 
-.btn-submit {
-    input {
+    .goldenButton {
         @include goldenButton;
     }
 }
@@ -317,8 +313,6 @@ footer {
     height: fit-content;
     h2 {
         color: white;
-        font-family: "Vollkorn", sans-serif;
-        font-size: 2rem;
     }
 }
 .jeux {
@@ -348,14 +342,13 @@ footer {
 .ludotheque {
     h2 {
         color: white;
-        font-family: "Vollkorn", sans-serif;
-        font-size: 2rem;
     }
     .search {
         min-height: 20rem;
         background-color: $mainRed;
         color: $mainBlack;
         font-family: "Poppins", sans-serif;
+        box-shadow: 3px 3px 3px 3px darken(rgba(0, 0, 0, 0.2), 100%);
         &-hastags {
             min-height: 10rem;
         }
@@ -384,10 +377,10 @@ footer {
 }
 
 .gameBlock {
-    background-color: #ffffff;
+    @include gameCard;
 
     .gameBlockCategorie {
-        background: $mainRed;
+        @include gameCategorie;
     }
 }
 

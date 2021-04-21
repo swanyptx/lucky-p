@@ -20,14 +20,14 @@ const Booking = () => {
                         <img src="../assets/img/deco/fun-1.jpg" alt="test" />
                     </figure>
                 </div>
-                <div className="reserve-infos flex justify-center flex-wrap m-3 lg:p-8 lg:ml-6">
+                <div className="reserve-infos flex flex-col justify-center m-3 lg:p-8 lg:ml-6">
                     <div className="reserve-text my-6 hidden lg:block">
                         <h3>Je souhaite réserver !</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit consectetur, dolorem odio doloremque numquam provident. Placeat explicabo dolor voluptatum neque.</p>
+                        <p>Vous êtes plusieurs et vous souhaitez réserver une table ? Ou faire votre demande de mariage ? La Luck est l'endroit rêvé ! N'attendez plus !</p>
                     </div>
-                        <Link href="/booking">
-                            <a className="animate-bounce reserve-button rounded py-2 px-4 font-bold">Réserver</a>
-                        </Link>
+                    <Link href="/booking">
+                        <a className="animate-bounce reserve-button m-auto ">Réserver</a>
+                    </Link>
                 </div>
             </div>
         </section>
