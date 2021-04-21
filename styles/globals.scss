@@ -207,12 +207,24 @@
 //SOCIAL NETWORK
 
 .socialNetwork {
-    background-color: $mainBlack;
+    background-color: $mainGreen;
+
     h2 {
-        font-family: "Poppins", sans-serif;
-        font-size: 2rem;
+        font-family: "Vollkorn", sans-serif;
+    }
+
+    .socialFacebook {
+        //Mixin
+        @include socialNetwork;
+    }
+
+    .socialInsta {
+        //Mixin
+        @include socialNetwork(415px, 320px);
     }
 }
+
+//NAVBAR
 
 .navbar {
     position: fixed;
