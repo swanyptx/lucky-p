@@ -76,7 +76,7 @@ const Games = ({ data }) => {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
             </Head>
 
-            <Navbar displayNavbar={navbarBooking} booking={false} />
+            <Navbar displayNavbar={navbarBooking} booking={false}/>
 
             <section className="pt-20 games flex flex-col justify-center text-white">
                 <h2 className="text-center py-5">Sélection de nos jeux</h2>

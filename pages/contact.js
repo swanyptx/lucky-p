@@ -85,15 +85,15 @@ export default function ContactUs(){
             <link rel="icon" href="/icon.ico" />
         </Head>
         <Navbar displayNavbar={navbarContact} contact = {false}></Navbar>
-        <div className="container flex flex-col items-center justify-center">
+        <div className="container flex flex-col items-center justify-center min-h-screen">
             <h1 className="text-center pt-28 ">Contactez-nous</h1>
             <div className="bg-div">
             <form onSubmit={sendEmail} className="flex flex-col">
                     <div className="">
                         <p>* Champs obligatoires</p>
-                        <div className="form-group flex flex-col p-2">
+                        <div className="form-group flex flex-col p-2 py-4">
                             <input type="text" 
-                            className="p-1 pl-2 rounded-full leading-none pr-2" 
+                            className="p-2 pl-2 rounded-full leading-none pr-2 " 
                             placeholder="Nom *" 
                             name="name"
                             autoComplete="off"
@@ -102,9 +102,9 @@ export default function ContactUs(){
                             value={name}
                             />
                         </div>
-                        <div className="form-group flex flex-col p-2">
+                        <div className="form-group flex flex-col p-2 py-4">
                             <input type="text" 
-                            className="p-1 pl-2 rounded-full" 
+                            className="p-2 pl-2 rounded-full" 
                             placeholder="Prénom" 
                             name="firstname"
                             id="firstname"
@@ -112,9 +112,9 @@ export default function ContactUs(){
                             value={firstname}
                             />
                         </div>
-                        <div className="form-group flex flex-col p-2">
+                        <div className="form-group flex flex-col p-2 py-4">
                             <input type="text" 
-                            className="p-1 pl-2 rounded-full" 
+                            className="p-2 pl-2 rounded-full" 
                             placeholder="Téléphone" 
                             name="phone"
                             id="phone"
@@ -122,10 +122,10 @@ export default function ContactUs(){
                             value={phone}
                             />
                         </div>
-                        <div className="form-group flex flex-col p-2">
+                        <div className="form-group flex flex-col p-2 py-4">
                             <label id="not-mail">Email non valide</label>
                             <input type="text" 
-                            className="p-1 pl-2 rounded-full" 
+                            className="p-2 pl-2 rounded-full" 
                             placeholder="Adresse email *" 
                             name="email"
                             autoComplete="off"
@@ -134,7 +134,7 @@ export default function ContactUs(){
                             value={email}
                             />
                         </div>
-                        <div className="form-group flex flex-col p-2">
+                        <div className="form-group flex flex-col p-2 py-4">
                             <textarea className="inputAdd p-1 pl-2 rounded-2xl"  
                             id="message" 
                             cols="30" 
@@ -147,7 +147,7 @@ export default function ContactUs(){
                         </div>
                         <div className="btn-submit flex flex-col items-center">
                             <input type="submit" 
-                            className="p-2 m-4 rounded-full" 
+                            className="p-2 py-4 m-4 rounded-full" 
                             value="Envoyer le message">
                             </input>
                         </div>

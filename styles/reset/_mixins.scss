@@ -41,12 +41,13 @@
     }
 }
 
-@mixin goldenButton($font-size : 1rem) {
-    background-color: $mainYellow;
+@mixin goldenButton($background-color: $mainYellow, $font-size: 1rem) {
+    background-color: $background-color;
     color: $mainWhite;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     font-size: $font-size;
+    box-shadow: 3px 3px 3px 3px darken(rgba(0, 0, 0, 0.204), 100%);
     &:hover {
         background-color: darken($mainYellow, 10%);
     }

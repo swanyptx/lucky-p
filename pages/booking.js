@@ -15,7 +15,7 @@ const Booking =  () => {
             <Navbar displayNavbar={navbarBooking} 
             booking = {false}
             ></Navbar>
-            <div className="container flex flex-col items-center justify-center">
+            <div className="container flex flex-col items-center justify-center min-h-screen">
                 <h1 className="text-center pt-16">Réservation</h1>
                 <div className="bg-div">
                     <form action="" className="flex flex-col">
@@ -25,20 +25,20 @@ const Booking =  () => {
                                 <input type="text" 
                                 id="inputName" 
                                 placeholder="Entrez votre nom"
-                                className="inputAdd p-1 rounded mt-2"/>
+                                className="inputAdd p-2 rounded mt-2"/>
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputFirstName">Votre prénom :</label>
                                 <input type="text" 
                                 id="inputFirstName" 
                                 placeholder="Entrez votre prénom" 
-                                className="inputAdd p-1 rounded mt-2"/>
+                                className="inputAdd p-2 rounded mt-2"/>
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputPerson">Combien êtes-vous ?</label>
                                 <select name="" 
                                 id="inputPerson" 
-                                className="booking-list inputAdd p-1 rounded mt-2"
+                                className="booking-list inputAdd p-2 rounded mt-2"
                                 placeholder="Combien êtes vous ?">
                                     {/* <option value="" disabled selected>Combien êtes vous ?</option> */}
                                     <option value="1">1</option>
@@ -53,13 +53,13 @@ const Booking =  () => {
                                 <label htmlFor="inputDate">Quand voulez-vous venir ?</label>
                                 <input type="date" 
                                 id="inputDate" 
-                                className="inputAdd p-1 rounded mt-2"/>
+                                className="inputAdd p-2 rounded mt-2"/>
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputHour">À quelle heure ?</label>
                                 <select name="" 
                                 id="inputHour" 
-                                className="booking-list inputAdd p-1 rounded mt-2">
+                                className="booking-list inputAdd p-2 rounded mt-2">
                                     <option value="1">18:00</option>
                                     <option value="2">18:30</option>
                                     <option value="3">19:00</option>

@@ -39,7 +39,7 @@ const Home = (props) => {
             button={false}
             fade="up"
           />
-          <div className="w-screen overflow-hidden">
+          <div className="w-screen overflow-x-hidden">
             <SliderMain />
           </div>
           <BasicSection
@@ -65,8 +65,9 @@ const Home = (props) => {
             fade="up"
             href="/games"
           />
-          <Reviews data={props.res} />
-
+          <div className="w-screen overflow-x-hidden">
+            <Reviews data={props.res} />
+          </div>
           {/* <Calendar /> */}
           <Booking />
           <Footer />

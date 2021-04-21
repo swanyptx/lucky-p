@@ -21,19 +21,9 @@ const Ludotheque = ({ allGamesFromAPI }) => {
     const [searchInputDifficulty, setSearchInputDifficulty] = useState(1)
     const [gamesArray, setGamesArray] = useState(allGamesFromAPI)
     const [categoriesText, setCategoriesText] = useState([]);
-    const [filteredGames, setFilteredGames] = useState(gamesArray.filter((game) => {
-        if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
-            return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
-        }
+    const [filteredGames, setFilteredGames] = useState(gamesArray);
 
-    }));
-    const navbarBooking = true
-    
-    // const filteredGames = gamesArray.filter((game) => {
-    // setFilteredGames(gamesArray.filter((game) => {
-
-    //Filter
-
+    const navbarBooking = true;
 
     function getGames(items, index) {
         // console.log(items)
@@ -61,7 +51,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
 
         let test = -1;
         categoriesText.find((element) => {
-            
+
             if (element === value) {
                 test = categoriesText.indexOf(element)
             }
@@ -86,9 +76,9 @@ const Ludotheque = ({ allGamesFromAPI }) => {
 
     useEffect(
         () => {
-            console.log(categoriesText)
+
             if (categoriesText.length > 0) {
-                getGames(filteredGames, 0);
+                getGames(gamesArray, 0);
             }
         }, [categoriesText]
     )
@@ -104,8 +94,9 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
             </Head>
-            <Navbar displayNavbar={navbarBooking}
-                booking={false}
+            <Navbar
+                displayNavbar={navbarBooking}
+                ludotheque={false}
             ></Navbar>
             <section className="ludotheque">
                 <div className="container py-20 sm:py-10 flex flex-col items-center justify-center">
@@ -228,7 +219,7 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5">
                             {filteredGames.filter((game) => {
 
-                                if (game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
+                                if (game.title == searchInputText || game.nbMinPlayer <= searchInputPlayer && game.nbMaxPlayer >= searchInputPlayer && game.gameTimes == searchInputTime && game.difficulty == searchInputDifficulty) {
                                     return game.title.toLowerCase().indexOf(searchInputText.toLowerCase()) !== -1
                                 }
 
