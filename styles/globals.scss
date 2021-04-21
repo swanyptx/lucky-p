@@ -187,8 +187,6 @@
     }
 
     .bg-div {
-        // background-color: $mainRed;
-        // max-width: 50%;
         min-width: 50%;
         border-radius: 10px;
     }
@@ -196,10 +194,8 @@
     .booking-list {
         color: black;
     }
-}
 
-.btn-submit {
-    input {
+    .goldenButton {
         @include goldenButton;
     }
 }
@@ -346,8 +342,6 @@ footer {
 .ludotheque {
     h2 {
         color: white;
-        font-family: "Vollkorn", sans-serif;
-        font-size: 2rem;
     }
     .search {
         min-height: 20rem;

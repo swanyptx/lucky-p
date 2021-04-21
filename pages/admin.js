@@ -20,7 +20,7 @@ const Admin = ({ allGamesFromAPI }) => {
 
     const [GamesArray, setGamesArray] = useState(allGamesFromAPI)
     const [isHidden, setIsHidden] = useState(true);
-    const [component, setComponent] = useState("add")
+    const [component, setComponent] = useState("")
 
     function notHidden() {
         setIsHidden(false);

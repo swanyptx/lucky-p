@@ -8,8 +8,8 @@ const NewGame = (props) => {
     const [descriptionText, setDescriptionText] = useState('');
     const [nbMinPlayerText, setNbMinPlayerText] = useState(2);
     const [nbMaxPlayerText, setNbMaxPlayerText] = useState(4);
-    const [difficultyText, setDifficultyText] = useState(1);
-    const [gameTimesText, setGameTimesText] = useState((-15));
+    const [difficultyText, setDifficultyText] = useState();
+    const [gameTimesText, setGameTimesText] = useState('');
     const [quantityText, setQuantityText] = useState(1);
     const [videoURLText, setVideoURLText] = useState('');
     const [minAgeText, setMinAgeText] = useState(6);
@@ -72,6 +72,7 @@ const NewGame = (props) => {
                         className="inputAdd p-1 rounded mt-2"
                         value={difficultyText}
                         onChange={(e) => setDifficultyText(e.target.value)}>
+                        <option value="">----</option>
                         <option value="1">Facile</option>
                         <option value="2">Intermédiaire</option>
                         <option value="3">Difficile</option>
@@ -121,22 +122,22 @@ const NewGame = (props) => {
                         className="inputAdd p-1 rounded mt-2" />
                 </div>
 
-
-
                 <div className="form-group flex flex-col p-1 px-2">
-                    <label htmlFor="gameTime">Temps de Jeu :</label>
+                    <label htmlFor="gameTimes">Temps :</label>
                     <select
                         name=""
-                        id="gameTime"
+                        id="gameTimes"
                         className="inputAdd p-1 rounded mt-2"
                         value={gameTimesText}
                         onChange={(e) => setGameTimesText(e.target.value)}>
+                        <option value="">----</option>
                         <option value="(-15)">- de 15 minutes</option>
-                        <option value="(15 - 30)">15 à 30 minutes</option>
-                        <option value="(30 - 60)">30 à 60 minutes</option>
+                        <option value="(15 - 30)">De 15 à 30 minutes</option>
+                        <option value="(30 - 60)">De 30 à 60 minutes</option>
                         <option value="(+60)">+ de 60 minutes</option>
                     </select>
                 </div>
+
                 <div className="form-group flex flex-col p-1 px-2">
                     <label htmlFor="gameQuantity">Quantité de jeu à disposition :</label>
                     <input

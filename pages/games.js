@@ -55,12 +55,14 @@ const Games = ({ data }) => {
         }
 
         return (
-            <Link href={'/ludotheque/' + game._id} key={game._id}>
+            <Link key={game._id} href={'/ludotheque/' + game._id} >
                 <div className="gameBlock flex flex-col rounded-2xl m-3 p-5 cursor-pointer transform hover:scale-105">
                     <div className="fakeBlock self-center"> </div>
                     <h4 className="font-semibold text-center">{game.title}</h4>
                     <h4 className="desc">{desc}</h4>
-                    <div className="flex flex-row justify-start ">{arrayCategories}</div>
+                    <div>
+                        <div className="flex flex-row justify-start ">{arrayCategories}</div>
+                    </div>
                 </div>
             </Link>
         )
@@ -76,10 +78,11 @@ const Games = ({ data }) => {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
             </Head>
 
-            <Navbar displayNavbar={navbarBooking} booking={false}/>
+            <Navbar displayNavbar={navbarBooking} booking={false} />
 
-            <section className="pt-20 games flex flex-col justify-center text-white">
-                <h2 className="text-center py-5">Sélection de nos jeux</h2>
+            <section className="pt-28 games flex flex-col items-center justify-center text-white">
+                <h2 className="">Sélection de nos jeux</h2>
+                <h4 className="text-white">Un avant-goût de tous nos jeux</h4>
                 <div className="flex flex-row justify-center items-center">
                     <p onClick={() => sliderLeft()}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-8 transform hover:scale-110 cursor-pointer" viewBox="0 0 20 20" fill="currentColor">

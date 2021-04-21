@@ -58,16 +58,19 @@ const Brasserie = ({ allMenusFromAPI }) => {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
             </Head>
             <Navbar displayNavbar={true} brasserie={false}></Navbar>
-            <section className="carte py-28">
+            <section className="carte pt-28">
                 <h2 className="hidden md:block text-center">Nos Cartes</h2>
+                <h4 className="hidden md:block text-white text-center">Laissez-vous tenter par nos mets !</h4>
                 <div className="container sm:py-10 flex flex-col items-center ">
                     <div className="w-full">
 
                         <div className="text-white hover:text-orange block md:hidden" href="#" onClick={isHidden ? notHidden : hidden}>
                             <h2 className="titleMobile text-center p-4 rounded">Nos Cartes</h2>
+                            <h4 className="text-white text-center py-2">Laissez-vous tenter par nos mets !</h4>
+
                         </div>
                         <nav className={isHidden ? "hidden sm:block" : ""}>
-                            <ul className="menuUl grid grid-cols-1 md:grid-cols-4 gap-4 justify-around p-10">
+                            <ul className="menuUl grid grid-cols-1 md:grid-cols-4 gap-4 justify-around px-10 pb-10">
                                 <li className="menuLi m-2 p-4 rounded flex justify-center items-center" onClick={() => { setCarte("Burger"); setBonus(""); setBonusTwo(""); setBonusThree(""); hidden() }}>Burgers</li>
                                 <li className="menuLi m-2 p-4 rounded flex justify-center items-center" onClick={() => { setCarte("Dessert"); setBonus(""); setBonusTwo(""); setBonusThree(""); hidden() }}>Desserts</li>
                                 <li className="menuLi m-2 p-4 rounded flex justify-center items-center" onClick={() => { setCarte("Soft"); setBonus("Coffee"); setBonusTwo("Tea"); setBonusThree(""); hidden() }}>Softs, Cafés, Thé</li>

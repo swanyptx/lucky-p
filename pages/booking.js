@@ -2,44 +2,45 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
 
-const Booking =  () => {
+const Booking = () => {
 
     const navbarBooking = true;
 
-    return(
+    return (
         <div className="bg-booking">
             <Head >
                 <title>La Luck - Réservation</title>
                 <link rel="icon" href="/icon.ico" />
             </Head>
-            <Navbar displayNavbar={navbarBooking} 
-            booking = {false}
+            <Navbar displayNavbar={navbarBooking}
+                booking={false}
             ></Navbar>
-            <div className="container flex flex-col items-center justify-center min-h-screen">
-                <h1 className="text-center pt-16">Réservation</h1>
-                <div className="bg-div">
+            <div className=" flex flex-col items-center min-h-screen">
+                <h2 className="pt-28">Réservation</h2>
+                <h4 className="text-white text-center">Une petite table ? Une grand table ? Dites-nous tout !</h4>
+                <div className="bg-div ">
                     <form action="" className="flex flex-col">
                         <div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputName">Votre nom :</label>
-                                <input type="text" 
-                                id="inputName" 
-                                placeholder="Entrez votre nom"
-                                className="inputAdd p-2 rounded mt-2"/>
+                                <input type="text"
+                                    id="inputName"
+                                    placeholder="Entrez votre nom"
+                                    className="inputAdd p-2 rounded mt-2" />
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputFirstName">Votre prénom :</label>
-                                <input type="text" 
-                                id="inputFirstName" 
-                                placeholder="Entrez votre prénom" 
-                                className="inputAdd p-2 rounded mt-2"/>
+                                <input type="text"
+                                    id="inputFirstName"
+                                    placeholder="Entrez votre prénom"
+                                    className="inputAdd p-2 rounded mt-2" />
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputPerson">Combien êtes-vous ?</label>
-                                <select name="" 
-                                id="inputPerson" 
-                                className="booking-list inputAdd p-2 rounded mt-2"
-                                placeholder="Combien êtes vous ?">
+                                <select name=""
+                                    id="inputPerson"
+                                    className="booking-list inputAdd p-2 rounded mt-2"
+                                    placeholder="Combien êtes vous ?">
                                     {/* <option value="" disabled selected>Combien êtes vous ?</option> */}
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -51,15 +52,15 @@ const Booking =  () => {
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputDate">Quand voulez-vous venir ?</label>
-                                <input type="date" 
-                                id="inputDate" 
-                                className="inputAdd p-2 rounded mt-2"/>
+                                <input type="date"
+                                    id="inputDate"
+                                    className="inputAdd p-2 rounded mt-2" />
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputHour">À quelle heure ?</label>
-                                <select name="" 
-                                id="inputHour" 
-                                className="booking-list inputAdd p-2 rounded mt-2">
+                                <select name=""
+                                    id="inputHour"
+                                    className="booking-list inputAdd p-2 rounded mt-2">
                                     <option value="1">18:00</option>
                                     <option value="2">18:30</option>
                                     <option value="3">19:00</option>
@@ -73,16 +74,14 @@ const Booking =  () => {
                                 </select>
                             </div>
                         </div>
-                        <div className="btn-submit flex flex-col items-center">
-                            <input type="submit" 
-                            className="p-2 m-4 rounded mt-2" 
-                            value="Réserver">
-                            </input>
-                        </div>
+                        <input type="submit"
+                            className="goldenButton m-auto"
+                            value="Envoyer le message">
+                        </input>
                     </form>
                 </div>
             </div>
-                <Footer />
+            <Footer />
         </div>
 
     )
