@@ -145,6 +145,8 @@
     min-height: 90vh;
 
     .reserve-img {
+        display: none;
+
         width: 45%;
         figure {
             width: 20rem;
@@ -153,31 +155,44 @@
                 height: 100%;
             }
         }
+        @media (min-width: 1025px) {
+            display: block;
+        }
     }
 
     .reserve-infos {
         width: 45%;
         .reserve-text {
+            display: none;
             color: $mainWhite;
+            @media (min-width: 1025px) {
+                display: block;
+            }
         }
         .reserve-button {
             @include goldenButton;
+            position: static;
+            width: fit-content;
+            @media (max-width: 1024px) {
+                margin: auto;
+                min-height: auto;
+                
+                .reserve-button {
+                    font-size: 1rem;
+                }
+            }
         }
     }
-    @media (max-width: 1025px) {
+    @media (max-width: 1024px) {
         position: fixed;
         bottom: 0;
-        min-height: auto;
+        padding:1rem 0;
+        min-height: 2rem;
+        max-height: 4rem;
         width: 100%;
         .reserve-button {
             font-size: 1rem;
         }
-    }
-    @media (max-width: 1025px) {
-        position: fixed;
-        bottom: 0;
-        min-height: auto;
-        width: 100%;
     }
 }
 
@@ -185,7 +200,7 @@
     background-color: $mainGreen;
     font-family: "Vollkorn";
     color: $mainWhite;
-
+    padding-top: 5rem 0;
     input {
         color: black;
     }
@@ -457,8 +472,6 @@ footer {
 .carte {
     min-height: 90vh;
     width: 100%;
-    .titleBrasserie {
-    }
     .menu-text {
         margin: auto;
         &-price {
@@ -563,7 +576,7 @@ footer {
         padding-top: 2.5rem;
         position: relative;
         min-width: 15rem;
-        
+
         .suppressBookingSpan {
             position: absolute;
             color: white;
@@ -576,7 +589,26 @@ footer {
             cursor: pointer;
         }
     }
-    @media (max-width:768px) {
+    @media (max-width: 768px) {
         justify-content: center;
     }
+}
+
+// BasicSection
+
+.sectionDiv {
+    flex-direction: column;
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
+}
+.sectionDivReverse {
+    flex-direction: column;
+    @media (min-width: 1024px) {
+        flex-direction: row-reverse;
+    }
+}
+
+.margin{
+    margin: 2rem 0;
 }
