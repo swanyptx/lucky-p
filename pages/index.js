@@ -131,7 +131,8 @@ export async function getStaticProps(context) {
 
   try {
     res = await fetch(
-      'https://luckyp-api.herokuapp.com/reviews'
+      // 'https://luckyp-api.herokuapp.com/reviews'
+      'http://localhost:5500/reviews'
     ).then((res) => res.json());
 
 

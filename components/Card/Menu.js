@@ -21,7 +21,7 @@ const Menu = ({ data, name }) => {
 
         return (
             <div key={menu._id} className="py-6 cardMenu">
-                <h2>{menu.name}</h2>
+                <h3>{menu.name}</h3>
                 <div className="menu-text py-6">
                     <p>{menu.description}</p>
                     <p className="menu-text-price py-4"> {menu.price} € {prix}</p>

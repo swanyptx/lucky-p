@@ -14,39 +14,88 @@ const NewGame = (props) => {
     const [videoURLText, setVideoURLText] = useState('');
     const [minAgeText, setMinAgeText] = useState(6);
     const [categoriesText, setCategoriesText] = useState([]);
+    const [contentsText, setContentsText] = useState([]);
 
     function getCheck(value) {
         categoriesText.push(value)
         console.log(categoriesText)
     }
 
+
+    function cancelCourse() {
+        setTitleText('');
+        setPreambleText('');
+        setDescriptionText('');
+        setNbMinPlayerText(2);
+        setNbMaxPlayerText(4);
+        setDifficultyText();
+        setQuantityText(1);
+        setVideoURLText('');
+        setMinAgeText(6);
+    }
+
     const submit = async () => {
 
-        const gameSchema = {
-            title: titleText,
-            preamble: preambleText,
-            description: descriptionText,
-            nbMinPlayer: nbMinPlayerText,
-            nbMaxPlayer: nbMaxPlayerText,
-            difficulty: difficultyText,
-            gameTimes: gameTimesText,
-            quantity: quantityText,
-            videoURL: videoURLText,
-            minAge: minAgeText,
-            categories: categoriesText,
+        let error = ""
+
+        if (nbMinPlayerText > nbMaxPlayerText) {
+
+            error = "Error"
+            alert("Le nombre minimum de joueur ne peut pas être supérieur au nombre maximum. Encore une fourberie de Fred !")
+
         }
 
-        await fetch('https://luckyp-api.herokuapp.com/games', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(gameSchema),
+        if (titleText == "" || titleText == null || titleText == undefined) {
 
-        }).catch(error => console.log(error))
-            .then(res => res.json())
-        // .then(json => setGame(json.user))
+            error = "Error"
+            alert("Vous devez, au minimum, ajouter un titre à votre jeu")
+
+        }
+
+        if (error != "Error") {
+            const gameSchema = {
+                title: titleText,
+                preamble: preambleText,
+                description: descriptionText,
+                nbMinPlayer: nbMinPlayerText,
+                nbMaxPlayer: nbMaxPlayerText,
+                difficulty: difficultyText,
+                gameTimes: gameTimesText,
+                quantity: quantityText,
+                videoURL: videoURLText,
+                minAge: minAgeText,
+                categories: categoriesText,
+                contents: contentsText
+            }
+
+            // await fetch('http://localhost:5500/games', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(gameSchema),
+
+            // }).catch(error => console.log(error))
+            //     .then(res => res.json())
+
+            await fetch('https://luckyp-api.herokuapp.com/games', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(gameSchema),
+
+            }).catch(error => console.log(error))
+                .then(res => res.json())
+            .then(json => setGame(json.user))
+
+            alert("Jeu ajouté avec succès !")
+
+            cancelCourse();
+        }
+
     }
 
     return (
@@ -106,7 +155,7 @@ const NewGame = (props) => {
                     <input
                         type="number"
                         id="gameMinPlayer"
-                        min="0"
+                        min="1"
                         value={nbMinPlayerText}
                         onChange={(e) => setNbMinPlayerText(e.target.value)}
                         className="inputAdd p-1 rounded mt-2" />
@@ -116,7 +165,7 @@ const NewGame = (props) => {
                     <label htmlFor="gameMaxPlayer" >Nombre maximum de joueurs :</label>
                     <input type="number"
                         id="gameMaxPlayer"
-                        min="0"
+                        min="1"
                         value={nbMaxPlayerText}
                         onChange={(e) => setNbMaxPlayerText(e.target.value)}
                         className="inputAdd p-1 rounded mt-2" />
@@ -166,7 +215,7 @@ const NewGame = (props) => {
                     <input
                         type="number"
                         id="minAge"
-                        min="0"
+                        min="3"
                         value={minAgeText}
                         onChange={(e) => setMinAgeText(e.target.value)}
                         className="inputAdd p-1 rounded mt-2" />
@@ -227,7 +276,7 @@ const NewGame = (props) => {
                     </div>
                 </div>
 
-                <button onSubmit={() => submit()} className="col-span-1 md:col-span-2 my-5 text-xl buttonTest" type="submit">Valider</button>
+                <button onClick={() => submit()} className="col-span-1 md:col-span-2 my-5 text-xl buttonTest" type="button">Valider</button>
 
             </form>
         </div>

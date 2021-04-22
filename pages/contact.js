@@ -149,6 +149,7 @@ export default function ContactUs() {
                             className="goldenButton m-auto margin"
                             value="Envoyer le message">
                         </input>
+                       <div className="form-message"></div>
                     </form>
                 </div>
             </div>
