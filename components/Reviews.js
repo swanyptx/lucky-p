@@ -24,7 +24,7 @@ export default function Reviews({ data }) {
         return (
             <div key={review._id} className="review text-white p-3 flex justify-center">
                 <div className="flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8" width="40px" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                     </svg>
                 </div>

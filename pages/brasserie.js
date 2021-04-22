@@ -60,7 +60,7 @@ const Brasserie = ({ allMenusFromAPI }) => {
             </Head>
             <Navbar displayNavbar={true} brasserie={false}></Navbar>
             <section className="carte pt-28">
-                <h2 className="hidden md:block text-center">Nos Cartes</h2>
+                <h2 className="hidden md:block text-center titleBrasserie">Nos Cartes</h2>
                 <h4 className="hidden md:block text-white text-center">Laissez-vous tenter par nos mets !</h4>
                 <div className="container sm:py-10 flex flex-col items-center ">
                     <div className="w-full">

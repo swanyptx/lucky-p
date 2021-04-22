@@ -75,7 +75,7 @@ const Booking = () => {
                             </div>
                         </div>
                         <input type="submit"
-                            className="goldenButton m-auto"
+                            className="goldenButton m-auto margin"
                             value="Envoyer le message">
                         </input>
                     </form>

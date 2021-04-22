@@ -149,6 +149,8 @@
     min-height: 90vh;
 
     .reserve-img {
+        display: none;
+
         width: 45%;
         figure {
             width: 20rem;
@@ -157,19 +159,40 @@
                 height: 100%;
             }
         }
+        @media (min-width: 1025px) {
+            display: block;
+        }
     }
 
     .reserve-infos {
         width: 45%;
         .reserve-text {
+            display: none;
             color: $mainWhite;
+            @media (min-width: 1025px) {
+                display: block;
+            }
         }
         .reserve-button {
             @include goldenButton;
+            position: static;
+            width: fit-content;
+            @media (max-width: 1024px) {
+                margin: auto;
+                min-height: auto;
+                
+                .reserve-button {
+                    font-size: 1rem;
+                }
+            }
         }
     }
-    @media (max-width: 1025px) {
-        min-height: auto;
+    @media (max-width: 1024px) {
+        position: fixed;
+        bottom: 0;
+        padding:1rem 0;
+        min-height: 2rem;
+        max-height: 4rem;
         width: 100%;
         .reserve-button {
             font-size: 1rem;
@@ -181,7 +204,7 @@
     background-color: $mainGreen;
     font-family: "Vollkorn";
     color: $mainWhite;
-
+    padding-top: 5rem 0;
     input {
         color: black;
     }
@@ -282,7 +305,7 @@
 footer {
     background-color: $mainBlack;
     color: $mainWhite;
-
+    padding: 4rem;
     font-family: "Poppins", sans-serif;
 
     figure {
@@ -290,6 +313,7 @@ footer {
     }
 
     h2 {
+        text-align: start;
         font-size: 1.6rem;
         margin-bottom: 1rem;
         @media (max-width: 1025px) {
@@ -512,8 +536,12 @@ footer {
         }
     }
 }
+
 .cardMenu {
     color: $mainWhite;
+    h2 {
+        font-family: "Vollkorn", sans-serif;
+    }
     hr {
         width: 30%;
         margin: auto;
@@ -571,4 +599,50 @@ footer {
     100% {
         transform: translate(0px, 0px);
     }
+}
+
+.bookingTableSide {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 5rem 0;
+    .suppressBooking {
+        padding-top: 2.5rem;
+        position: relative;
+        min-width: 15rem;
+
+        .suppressBookingSpan {
+            position: absolute;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            background-color: rgb(197, 0, 0);
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+    }
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+}
+
+// BasicSection
+
+.sectionDiv {
+    flex-direction: column;
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
+}
+.sectionDivReverse {
+    flex-direction: column;
+    @media (min-width: 1024px) {
+        flex-direction: row-reverse;
+    }
+}
+
+.margin{
+    margin: 2rem 0;
 }
