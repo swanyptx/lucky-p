@@ -43,7 +43,8 @@ const Admin = ({ allGamesFromAPI }) => {
                     games={GamesArray}
                 />
             )
-        } else {
+        } 
+        if (component == "reserve"){
             return (
                 <BookingTable />
             )

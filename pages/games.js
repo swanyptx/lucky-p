@@ -57,7 +57,9 @@ const Games = ({ data }) => {
         return (
             <Link key={game._id} href={'/ludotheque/' + game._id} >
                 <div className="gameBlock flex flex-col rounded-2xl m-3 p-5 cursor-pointer transform hover:scale-105">
-                    <div className="fakeBlock self-center"> </div>
+                    <div className="fakeBlock self-center">
+                        <img src={`/assets/img/imagegames/${game._id}.jpg`} alt="test" />
+                    </div>
                     <h4 className="font-semibold text-center">{game.title}</h4>
                     <h4 className="desc">{desc}</h4>
                     <div>

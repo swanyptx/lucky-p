@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const getStaticProps = async () => {
     // Call an external API endpoint to get posts
-    const res = await fetch('https://luckyp-api.herokuapp.com/games');
+    const res = await fetch('http://localhost:5500/games');
     const data = await res.json()
     return {
         props: { allGamesFromAPI: data }
@@ -234,12 +234,14 @@ const Ludotheque = ({ allGamesFromAPI }) => {
                                         <div className="gameBlockCategorie">{game.categories[index].categorieName}</div>
                                     )
                                 }
-
+                                console.log(game._id)
                                 return (
 
                                     <Link href={'/ludotheque/' + game._id} key={game.title}>
                                         <div className="gameBlock">
-                                            <div className="fakeBlock self-center"> </div>
+                                            <div className="fakeBlock self-center"> 
+                                                <img src={`/assets/img/imagegames/${game._id}.jpg`} alt="test"/>
+                                            </div>
                                             <h4 className="font-semibold text-center">{game.title}</h4>
                                             <h4 className="desc">{desc}</h4>
                                             <div className="flex flex-row justify-start flex-wrap ">{arrayCategories}</div>

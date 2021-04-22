@@ -92,7 +92,9 @@ const Details = ({ game }) => {
         return (
             <section key={game._id} id="contact" className="reserver lg:static flex justify-center lg:py-20 ">
                 <div className="container flex flex-col justify-center lg:py-8 text-white">
-                <div className="fakeBlock"></div>
+                <div className="fakeBlock">
+                    <img src={`/assets/img/imagegames/${game._id}.jpg`} alt="test"/>
+                </div>
                     <h1 className="font-bold">{game.title}</h1>
                     <div className="description">
                         <div className="flex flex-row flex-wrap pb-3">
