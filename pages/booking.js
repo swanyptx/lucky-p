@@ -51,10 +51,10 @@ const Booking = () => {
                                 </select>
                             </div>
                             <div className="form-group flex flex-col p-2">
-                                <label htmlFor="inputDate">Quand voulez-vous venir ?</label>
+                                <label htmlFor="inputDate">Quand voulez-vousr ?</label>
                                 <input type="date"
                                     id="inputDate"
-                                    className="inputAdd p-2 rounded mt-2" />
+                                    className="inputAdd p-2 rounded mt-2 w-100" />
                             </div>
                             <div className="form-group flex flex-col p-2">
                                 <label htmlFor="inputHour">À quelle heure ?</label>
