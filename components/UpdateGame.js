@@ -115,19 +115,6 @@ const UpdateGame = ({ games }) => {
                 return arrayCategorieGame
             })
 
-            const testons = () => {
-                let wesh = modify.categories.map((categorie) => {
-
-                    categorieIds.push(categorie._id)
-                    return (
-                        categorieIds
-                    )
-                })
-                setCategoriesText(wesh)
-            }
-
-            testons
-
             return (
                 <form action="" className="formAdd p-10 rounded-3xl my-20 grid md:grid-cols-2 grid-cols-1 ">
                     <h1 className="col-span-1 md:col-span-2 text-center my-5 text-4xl">Modification de jeu</h1>
@@ -264,7 +251,6 @@ const UpdateGame = ({ games }) => {
             <div className="grid grid-cols-4 p-6">
                 {filteredGames.map(game => {
                     return (
-
                         <div className="gameBlock grid rounded-2xl p-5 m-5">
                             <h4 className="font-semibold text-center">{game.title}</h4>
                             {/* <Link href={`admin/games/${game._id}`}> */}
@@ -272,7 +258,6 @@ const UpdateGame = ({ games }) => {
                             {/* </Link> */}
                             <a onClick={() => deleteGame(game._id)} href="/admin">Supprimer</a>
                         </div>
-
                     )
                 })}
             </div>
