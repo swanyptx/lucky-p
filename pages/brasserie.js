@@ -7,7 +7,7 @@ import Menu from '../components/Card/Menu'
 
 export const getStaticProps = async () => {
     // Call an external API endpoint to get posts
-    const res = await fetch('http://localhost:5500/menus');
+    const res = await fetch('https://luckyp-api.herokuapp.com/menus');
     const data = await res.json()
 
     return {

@@ -36,7 +36,7 @@ const NewGame = (props) => {
             categories: categoriesText,
         }
 
-        await fetch('http://localhost:5500/games', {
+        await fetch('https://luckyp-api.herokuapp.com/games', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

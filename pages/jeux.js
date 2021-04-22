@@ -43,7 +43,7 @@ export async function getStaticProps(context) {
 
     try {
         res = await fetch(
-            'http://localhost:5500/games'
+            'https://luckyp-api.herokuapp.com/games'
         ).then((res) => res.json());
 
 
