@@ -22,10 +22,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-<<<<<<< HEAD
-=======
-    // const res = await fetch('https://luckyp-api.herokuapp.com/games/' + id);
->>>>>>> 2a5ecbe30135c40a79996078bec3a4fd3834f652
     const res = await fetch('https://luckyp-api.herokuapp.com/games/' + id);
     const data = await res.json();
     console.log(data)
