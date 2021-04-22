@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar.js'
 
 
 export const getStaticPaths = async () => {
+    // const res = await fetch('https://luckyp-api.herokuapp.com/games');
     const res = await fetch('http://localhost:5500/games');
     const data = await res.json()
 
@@ -22,6 +23,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
+    // const res = await fetch('https://luckyp-api.herokuapp.com/games/' + id);
     const res = await fetch('http://localhost:5500/games/' + id);
     const data = await res.json();
     console.log(data)
@@ -69,6 +71,22 @@ const Details = ({ game }) => {
             }
         }
 
+        function gamePreamble() {
+            if (game.preamble == "" || game.preamble == undefined || game.preamble == null) {
+                return( <p> Ce jeu ne contient pas de préambule </p>)
+            } else {
+                return ( <p>{game.preamble}</p> )
+            }
+        }
+
+        function gameDescription() {
+            if (game.description == "" || game.description == undefined || game.description == null) {
+                return( <p> Ce jeu ne contient pas de description </p>)
+            } else {
+                return ( <p>{game.description}</p> )
+            }
+        }
+
         function gameURL() {
             if (game.videoURL == "" || game.videoURL == undefined || game.videoURL == null) {
                 return ( <p> Ce jeu ne contient pas de video des règles</p> )
@@ -103,7 +121,9 @@ const Details = ({ game }) => {
         return (
             <section key={game._id} id="contact" className="reserver lg:static flex justify-center lg:py-20 ">
                 <div className="container flex flex-col justify-center lg:py-8 text-white">
-                <div className="fakeBlock"></div>
+                <div className="gamePictureInsideIDGame border-4 ">
+                <img src={`/assets/img/imageGames/${game._id}.jpg`} alt="" onError={(e) => { e.target.onerror = null; e.target.src = "/assets/img/imageGames/unknown.jpg" }} />
+                </div>
                     <h1 className="font-bold">{game.title}</h1>
                     <div className="description">
                         <div className="flex flex-row flex-wrap pb-3">
@@ -148,11 +168,11 @@ const Details = ({ game }) => {
 
                         </ul>
                         <div id="description" className="py-3">
-                        {game.description}
+                        {gamePreamble()}
                         </div>
                         <div id="goal" className="py-3">
-                            <h3>But du Jeu :</h3>
-                        {game.description}
+                            <h3>Description :</h3>
+                        {gameDescription()}
                         </div>
                         <div id="rules" className="py-3">
                             <h3>Règles :</h3>
