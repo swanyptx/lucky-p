@@ -6,12 +6,6 @@ import UpdateGame from "../components/UpdateGame";
 import BookingTable from "../components/BookingTable";
 
 export const getStaticProps = async () => {
-<<<<<<< HEAD
-
-=======
-    // Call an external API endpoint to get posts
-    // const res = await fetch('https://luckyp-api.herokuapp.com/games');
->>>>>>> 2a5ecbe30135c40a79996078bec3a4fd3834f652
     const res = await fetch('https://luckyp-api.herokuapp.com/games');
     const data = await res.json()
 
