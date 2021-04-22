@@ -22,8 +22,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    // const res = await fetch('https://luckyp-api.herokuapp.com/games/' + id);
-    const res = await fetch('http://localhost:5500/games/' + id);
+    const res = await fetch('https://luckyp-api.herokuapp.com/games/' + id);
     const data = await res.json();
     console.log(data)
     return {
@@ -118,7 +117,7 @@ const Details = ({ game }) => {
         } 
 
         return (
-            <section key={game._id} id="contact" className="reserver lg:static flex justify-center lg:py-20 ">
+            <section key={game._id} id="contact" className= "lg:static flex justify-center lg:py-20 ">
                 <div className="container flex flex-col justify-center lg:py-8 text-white">
                 <div className="gamePictureInsideIDGame border-4 ">
                 <img src={`/assets/img/imageGames/${game._id}.jpg`} alt="" onError={(e) => { e.target.onerror = null; e.target.src = "/assets/img/imageGames/unknown.jpg" }} />

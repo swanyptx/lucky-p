@@ -316,9 +316,11 @@ footer {
         text-align: start;
         font-size: 1.6rem;
         margin-bottom: 1rem;
+        padding: 1rem 0;
         @media (max-width: 1025px) {
             font-size: 1.2rem;
         }
+
     }
 
     p {
@@ -326,6 +328,9 @@ footer {
         @media (max-width: 1025px) {
             font-size: 1rem;
         }
+    }
+    figure{
+        padding: 1rem 0;
     }
 }
 
@@ -440,7 +445,8 @@ footer {
     .gameBlockCategorie {
         @include gameCategorie;
     }
-    
+    display: flex;
+    justify-content: space-between;
 }
 
 // Admin
@@ -611,7 +617,9 @@ footer {
         padding-top: 2.5rem;
         position: relative;
         min-width: 15rem;
-
+        h2, p {
+            font-size: 1rem;
+        }
         .suppressBookingSpan {
             position: absolute;
             color: white;
@@ -646,4 +654,22 @@ footer {
 
 .margin{
     margin: 2rem 0;
+}
+
+.form-message{
+margin: 2rem 0 5rem 0;
+padding: 1rem;
+border-radius: 10px;
+}
+
+.divWaiting{
+    min-height: 100vh;
+    min-width: 100vw;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        text-align: center;
+    }
 }
