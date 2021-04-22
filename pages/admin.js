@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Head from 'next/head'
 import NewGame from '../components/NewGame'
-import UpdateGame from "../components/UpdateGame";
+import UpdateGame from "../components/updategame";
 import BookingTable from "../components/BookingTable";
 
 export const getStaticProps = async () => {
