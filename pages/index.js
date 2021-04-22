@@ -32,7 +32,7 @@ const Home = (props) => {
         <div>
           <BasicSection
             title="Le Concept de La Luck"
-            text="La Luck est une brasserie avec mezzanine et velux offrant bières, burgers, poutines, brunches. La force de notre batiment est d’offrir plus de 1000 jeux de société que vous pouvez utilisé. Situé dans le Vieux-Lille., nous sommes ouverts depuis 2016."
+            text="La Luck est une brasserie avec mezzanine et velux offrant bières, burgers, poutines, brunches. La force de notre batiment est d’offrir plus de 1000 jeux de société que vous pouvez utilisé. Situé dans le Vieux-Lille., nous sommes ouverts depuis 2016"
             image="../assets/img/bg/background3.jpg"
             reverse={true}
             sectionName="concept"
