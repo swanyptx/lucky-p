@@ -28,7 +28,7 @@ export default function Reviews({ data }) {
                         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                     </svg>
                 </div>
-                <h3>{review.userName}</h3>
+                <h4>{review.userName}</h4>
                 <div className="flex flex-row justify-center">
                     {getNote(review.note)}
                 </div>
@@ -41,7 +41,7 @@ export default function Reviews({ data }) {
 
     return (
         <div className="reviews py-10">
-            <h2 className="text-center py-5 text-2xl">L'avis de nos clients</h2>
+            <h2 className="text-center py-5">L'avis de nos clients</h2>
             <Slider {...settings} className="text-center">
                 {reviews}
             </Slider>
