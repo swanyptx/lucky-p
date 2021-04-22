@@ -39,10 +39,9 @@ const Admin = ({ allGamesFromAPI }) => {
 
         if (component == "modify") {
             return (
-                // <UpdateGame
-                //     games={GamesArray}
-                // />
-                null
+                <UpdateGame
+                    games={GamesArray}
+                />
             )
         } else {
             return (
