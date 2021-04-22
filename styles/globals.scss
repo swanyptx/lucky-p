@@ -10,6 +10,10 @@
     display: none;
 }
 
+.button {
+    @include goldenButton($mainRed);
+}
+
 //HEADER
 
 .header {
@@ -338,6 +342,36 @@ footer {
     h2 {
         color: white;
     }
+
+    .choices {
+        h2 {
+            // color: $mainWhite;
+            font-size: 2.5rem;
+            font-family: "Vollkorn", sans-serif;
+            font-weight: 600;
+            text-align: center;
+            @media (max-width: 1025px) {
+                font-size: 1.8rem;
+            }
+        }
+
+        h3 {
+            color: $mainWhite;
+            font-size: 1.8rem;
+            font-family: "Vollkorn", sans-serif;
+            font-weight: 600;
+            @media (max-width: 1025px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            @media (max-width: 1025px) {
+                font-size: 1rem;
+            }
+        }
+    }
 }
 .jeux {
     background-color: $mainGreen;
@@ -406,6 +440,7 @@ footer {
     .gameBlockCategorie {
         @include gameCategorie;
     }
+    
 }
 
 // Admin

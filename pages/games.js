@@ -40,8 +40,6 @@ const Games = ({ data }) => {
         }
     }
 
-
-
     const gameCards = data.map(game => {
 
         let maxLength = 140;
@@ -57,11 +55,13 @@ const Games = ({ data }) => {
         return (
             <Link key={game._id} href={'/ludotheque/' + game._id} >
                 <div className="gameBlock flex flex-col rounded-2xl m-3 p-5 cursor-pointer transform hover:scale-105">
-                    <div className="fakeBlock self-center"> </div>
+                    <div className="gamePicture self-center">
+                        <img src={`/assets/img/imageGames/${game._id}.jpg`} alt="" onError={(e) => { e.target.onerror = null; e.target.src = "/assets/img/imageGames/unknown.jpg" }} />
+                    </div>
                     <h4 className="font-semibold text-center">{game.title}</h4>
                     <h4 className="desc">{desc}</h4>
                     <div>
-                        <div className="flex flex-row justify-start ">{arrayCategories}</div>
+                        <div className="flex flex-row justify-start flex-wrap">{arrayCategories}</div>
                     </div>
                 </div>
             </Link>

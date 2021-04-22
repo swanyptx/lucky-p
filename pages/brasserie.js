@@ -81,7 +81,7 @@ const Brasserie = ({ allMenusFromAPI }) => {
                                 <li className="menuLi m-2 p-4 rounded flex justify-center items-center" onClick={() => { setCarte("Brunch"); setBonus(""); setBonusTwo(""); setBonusThree(""); hidden() }}>Brunchs</li>
                             </ul>
                         </nav>
-                        <div className="container flex justify-center text-center py-10">
+                        <div className="container choices flex justify-center text-center py-10">
                             {listeMenu()}
                         </div>
 
