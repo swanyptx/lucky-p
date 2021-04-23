@@ -31,7 +31,7 @@ const UpdateGame = ({ games }) => {
     }
 
     async function deleteGame(id) {
-        await fetch(`https://luckyp-api.herokuapp.com/games/${id}`, {
+        await fetch(`http://localhost:5500/games/${id}`, {
             method: 'DELETE',
         }).catch(error => console.log(error))
             .then(res => res.json())
@@ -153,7 +153,7 @@ const UpdateGame = ({ games }) => {
             minAge: minAgeVide(),
         }
 
-        await fetch(`https://luckyp-api.herokuapp.com/games/${id}`, {
+        await fetch(`http://localhost:5500/games/${id}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -164,6 +164,7 @@ const UpdateGame = ({ games }) => {
         }).catch(error => console.log(error))
             .then(res => res.json())
 
+        alert("Le jeu a été modifié !")
         // await fetch(`http://localhost:5500/games/${id}`, {
         //     method: 'PUT',
         //     headers: {

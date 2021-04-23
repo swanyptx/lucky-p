@@ -5,7 +5,8 @@ import Navbar from '../../components/Navbar.js'
 
 
 export const getStaticPaths = async () => {
-    const res = await fetch('https://luckyp-api.herokuapp.com/games');
+    // const res = await fetch('https://luckyp-api.herokuapp.com/games');
+    const res = await fetch('http://localhost:5500/games');
     const data = await res.json()
 
     const paths = data.map(game => {

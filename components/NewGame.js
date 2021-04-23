@@ -68,18 +68,7 @@ const NewGame = (props) => {
                 contents: contentsText
             }
 
-            // await fetch('http://localhost:5500/games', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Accept': 'application/json',
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(gameSchema),
-
-            // }).catch(error => console.log(error))
-            //     .then(res => res.json())
-
-            await fetch('https://luckyp-api.herokuapp.com/games', {
+            await fetch('http://localhost:5500/games', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -89,7 +78,18 @@ const NewGame = (props) => {
 
             }).catch(error => console.log(error))
                 .then(res => res.json())
-            .then(json => setGame(json.user))
+
+            // await fetch('https://luckyp-api.herokuapp.com/games', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(gameSchema),
+
+            // }).catch(error => console.log(error))
+            //     .then(res => res.json())
+            // .then(json => setGame(json.user))
 
             alert("Jeu ajouté avec succès !")
 
