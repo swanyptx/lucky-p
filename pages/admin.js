@@ -6,9 +6,7 @@ import UpdateGame from "../components/UpdateGame";
 import BookingTable from "../components/BookingTable";
 
 export const getStaticProps = async () => {
-    // Call an external API endpoint to get posts
-    // const res = await fetch('https://luckyp-api.herokuapp.com/games');
-    const res = await fetch('http://localhost:5500/games');
+    const res = await fetch('https://luckyp-api.herokuapp.com/games');
     const data = await res.json()
 
     return {
@@ -48,6 +46,13 @@ const Admin = ({ allGamesFromAPI }) => {
         if (component == "reserve"){
             return (
                 <BookingTable />
+            )
+        }
+        else {
+            return (
+                <div className="divWaiting">
+                    <p>Sélectionnez dans le menu ce que vous souhaitez réaliser</p>
+                </div>
             )
         }
     }

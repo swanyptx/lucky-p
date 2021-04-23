@@ -15,6 +15,7 @@ const NewGame = (props) => {
     const [minAgeText, setMinAgeText] = useState(6);
     const [categoriesText, setCategoriesText] = useState([]);
     const [contentsText, setContentsText] = useState([]);
+    const [game, setGame] = useState('');
 
     function getCheck(value) {
         categoriesText.push(value)
